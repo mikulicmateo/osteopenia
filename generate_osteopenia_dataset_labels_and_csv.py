@@ -38,6 +38,10 @@ for key in k:
         dst_path = os.path.join(folder_path, image_name)
         shutil.copy2(image_src_path, dst_path + ".png")
 
+        dict_list.append(dict)
         json_object = json.dumps(dict, indent=4)
         with open(dst_path + ".json", "w") as outfile:
             outfile.write(json_object)
+
+csv_df = pd.DataFrame.from_records(dict_list)
+csv_df.to_csv(os.path.join(OSTEOPENIA_DATASET_DIRECTORY_PATH, "osteopenia_dataset.csv"), encoding='utf-8', index=False)
