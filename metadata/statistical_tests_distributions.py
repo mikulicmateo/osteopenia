@@ -33,12 +33,15 @@ def cramers_v(confusion_matrix):
 
 #for each patient, patient ids are folder names
 classifications = {}
+num_of_classes = {}
+osteopenia_patient_ids = []
 for patient in os.listdir(OSTEOPENIA_DATASET):
 
     #ignore csv file
     if patient == "osteopenia_dataset.csv":
         continue
 
+    osteopenia_patient_ids.append(patient)
     #get per patient labels
     patient_lbls = []
     patient_dir = os.path.join(OSTEOPENIA_DATASET, patient)
@@ -46,7 +49,6 @@ for patient in os.listdir(OSTEOPENIA_DATASET):
 
         name, ext = os.path.splitext(file)
         if ext == '.json':
-
             file_path = os.path.join(patient_dir, file)
             with open(file_path, 'r') as labels:
                 lbl_dict = json.load(labels)
@@ -67,25 +69,32 @@ for patient in os.listdir(OSTEOPENIA_DATASET):
             patient_lbl['fracture_visible'] = 0
         if np.isnan(patient_lbl['metal']):
             patient_lbl['metal'] = 0
+        if np.isnan(patient_lbl['cast']):
+            patient_lbl['cast'] = 0
         if patient_lbl['gender'] == 'M':
             patient_lbl['gender'] = 1
         else:
             patient_lbl['gender'] = 0
-        data.append([patient_lbl['osteopenia'], patient_lbl['gender'], patient_lbl['study_number'], patient_lbl['age'], patient_lbl['initial_exam'], patient_lbl['fracture_visible'], patient_lbl['metal']])
+        data.append([patient_lbl['osteopenia'], patient_lbl['gender'], patient_lbl['study_number'], patient_lbl['age'], patient_lbl['initial_exam'], patient_lbl['fracture_visible'], patient_lbl['metal'], patient_lbl['cast']])
 
         if not isNaN(patient_lbl['ao_classification']):
             classes = patient_lbl['ao_classification'].split(";")
+
+            count = len(classes)
+            if count in num_of_classes:
+                num_of_classes[count] = num_of_classes[count] + 1
+            else:
+                num_of_classes[count] = 1
 
             for c in classes:
                 cls = c.strip()
                 if cls in classifications:
                     classifications[cls] = classifications[cls] + 1
                 else:
-                    classifications[cls] = 0
-
+                    classifications[cls] = 1
 
 #create patients dataframe
-patients_df = pd.DataFrame(data, columns=["osteopenia", 'gender', "study_number", "age", "initial_exam", "fracture_visible", "metal"])
+patients_df = pd.DataFrame(data, columns=["osteopenia", 'gender', "study_number", "age", "initial_exam", "fracture_visible", "metal", "cast"])
 
 
 #plot histogram of diagnoses for patients with osteopenia (some have more diagnoses)
@@ -96,7 +105,18 @@ ys = [y for x,y in classifications]
 sum_ys = sum(ys)
 plt.bar(xs, np.array(ys)/sum_ys, width=1)
 plt.xticks(rotation='vertical')
-plt.show()
+plt.title("Distribution of diagnoses for patients with osteopenia")
+plt.savefig("plots/diagnose_hist_with_osteopenia.png")
+
+num_of_classes = sorted(num_of_classes.items(), key=lambda x:x[1], reverse=True)
+plt.figure(figsize=(8, 10))
+xx = [x for x,y in num_of_classes]
+yy = [y for x,y in num_of_classes]
+sum_yy = sum(yy)
+plt.bar(xx, np.array(yy)/sum_yy, width=0.1)
+plt.xticks(rotation='vertical')
+plt.title("Distribution of fractures count for patients with osteopenia")
+plt.savefig("plots/fracture_count_hist_with_osteopenia.png")
 
 
 #https://www.statology.org/interpret-cramers-v/
@@ -111,6 +131,8 @@ cm_osteopenia_metal = pd.crosstab(patients_df['osteopenia'], patients_df['metal'
 print("[Osteopenia vs metal]",cramers_v(cm_osteopenia_metal), ", p-value", ss.chi2_contingency(cm_osteopenia_metal)[1])#none
 cm_osteopenia_initial_exam = pd.crosstab(patients_df['osteopenia'], patients_df['initial_exam'])
 print("[Osteopenia vs initial_exam]",cramers_v(cm_osteopenia_initial_exam), ", p-value", ss.chi2_contingency(cm_osteopenia_initial_exam)[1]) #small-to-medium, significant
+cm_osteopenia_cast = pd.crosstab(patients_df['osteopenia'], patients_df['cast'])
+print("[Osteopenia vs cast]",cramers_v(cm_osteopenia_initial_exam), ", p-value", ss.chi2_contingency(cm_osteopenia_cast)[1])#small-to-medium, significant
 
 print("\n")
 #point biserial [-1, 1]
@@ -123,4 +145,56 @@ print("[Osteopenia vs age] ", ss.pointbiserialr(patients_df['osteopenia'], patie
 #cross-check of statistical tests
 plt.figure(figsize=(8, 8))
 sn.heatmap(patients_df.corr(), annot=True)
-plt.savefig("osteopenians_correlations.png")
+plt.savefig("plots/corr_matrix_with_osteopenia.png")
+
+
+#non osteopenians distribution
+CSV_PATH_ALL = os.path.join(PROJECT_PATH, "dataset", "dataset.csv")
+
+df = pd.read_csv(CSV_PATH_ALL)
+
+patients_without_osteopenia_diag = {}
+patients_without_osteopenia_count_frac = {}
+for i in range(len(df)):
+
+    if df.iloc[i]['patient_id'] in osteopenia_patient_ids:
+        continue
+
+    ao_classification = df.iloc[i]['ao_classification']
+    if not isNaN(ao_classification):
+        classes = ao_classification.split(";")
+
+        count = len(classes)
+        if count in patients_without_osteopenia_count_frac:
+            patients_without_osteopenia_count_frac[count] = patients_without_osteopenia_count_frac[count] + 1
+        else:
+            patients_without_osteopenia_count_frac[count] = 1
+
+        for c in classes:
+            cls = c.strip()
+            if cls in patients_without_osteopenia_diag:
+                patients_without_osteopenia_diag[cls] = patients_without_osteopenia_diag[cls] + 1
+            else:
+                patients_without_osteopenia_diag[cls] = 1
+
+
+#plot histogram of diagnoses for patients without osteopenia (some have more diagnoses)
+patients_without_osteopenia_diag = sorted(patients_without_osteopenia_diag.items(), key=lambda x:x[1], reverse=True)
+plt.figure(figsize=(12, 12))
+xs = [x for x,y in patients_without_osteopenia_diag]
+ys = [y for x,y in patients_without_osteopenia_diag]
+sum_ys = sum(ys)
+plt.bar(xs, np.array(ys)/sum_ys, width=1)
+plt.xticks(rotation='vertical')
+plt.title("Distribution of diagnoses for patients without osteopenia")
+plt.savefig("plots/diagnose_hist_without_osteopenia.png")
+
+patients_without_osteopenia_count_frac = sorted(patients_without_osteopenia_count_frac.items(), key=lambda x:x[1], reverse=True)
+plt.figure(figsize=(8, 8))
+xx = [x for x,y in patients_without_osteopenia_count_frac]
+yy = [y for x,y in patients_without_osteopenia_count_frac]
+sum_yy = sum(yy)
+plt.bar(xx, np.array(yy)/sum_yy, width=0.1)
+plt.xticks(rotation='vertical')
+plt.title("Distribution of fractures count for patients without osteopenia")
+plt.savefig("plots/fracture_count_hist_without_osteopenia.png")
