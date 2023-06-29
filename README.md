@@ -2,8 +2,8 @@
 
 ## Generate dataset and labels
 * Download original dataset and place images in "dataset" directory structured as "dataset/images", "dataset.csv" should be in "dataset" directory
-* Run generate_osteopenia_datset_labels.py script:<br/>
-`python generate_osteopenia_dataset_labels.py`<br/>
+* Run generate_osteopenia_datset_labels_and_csv.py script:<br/>
+`python generate_osteopenia_dataset_labels_and_csv.py`<br/>
 
 ### Resources
 
