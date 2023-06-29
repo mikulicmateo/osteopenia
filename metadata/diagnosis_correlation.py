@@ -11,86 +11,91 @@ from statistical_tests_distributions import cramers_v
 
 PROJECT_PATH = os.path.abspath(os.pardir)
 CSV_PATH_DATASET = os.path.join(PROJECT_PATH, "dataset/dataset.csv")
-patient_ids = OrderedSet()
-diagnoses = OrderedSet()
 
 
-def main():
-    data_frame = pd.read_csv(CSV_PATH_DATASET)
-    data_frame["ao_classification"] = data_frame["ao_classification"].fillna(0)
+def get_unique_diagnoses_and_patient_ids(data_frame):
+    patient_ids = OrderedSet()
+    diagnoses = OrderedSet()
 
     for i in range(len(data_frame)):
         patient_ids.add(data_frame.iloc[i]["patient_id"])
         if str(data_frame.iloc[i]["ao_classification"]) != "0":
             classes = str(data_frame.iloc[i]["ao_classification"]).split(";")
             for c in classes:
-                diagnoses.add(c.strip())
+                if c[-1] != ".":
+                    diagnoses.add(c.strip())
 
-    correlation_dicts = []
-    image_name_counter = 0
+    return patient_ids, diagnoses
+
+
+def get_osteopenia_per_patient_df(data_frame, patient_ids):
+    column_osteopenia = []
+
+    for patient_id in patient_ids:
+        patient_df = data_frame.loc[data_frame["patient_id"] == patient_id]
+        if len(patient_df.loc[patient_df["osteopenia"] == 1]) >= 1:
+            column_osteopenia.append(1)
+        else:
+            column_osteopenia.append(0)
+
+    return pd.DataFrame({'osteopenia': column_osteopenia})
+
+
+def main():
+    data_frame = pd.read_csv(CSV_PATH_DATASET)
+    data_frame["ao_classification"] = data_frame["ao_classification"].fillna(0)
+    data_frame.sort_values("patient_id")
+
+    patient_ids, diagnoses = get_unique_diagnoses_and_patient_ids(data_frame)
+    osteopenia_df = get_osteopenia_per_patient_df(data_frame, patient_ids)
 
     for diagnosis in diagnoses:
         column_diagnosis = []
-        column_osteopenia = []
 
+        # For every patient check if diagnosis is present
         for patient_id in patient_ids:
             df = data_frame.loc[data_frame["patient_id"] == patient_id]
-            df.sort_values('timehash')
+            diagnosis_present = False
 
+            # If the diagnosis is present in any of the patient entries
             for i in range(len(df)):
+                if diagnosis in str(df.iloc[i]["ao_classification"]):
+                    column_diagnosis.append(1)
+                    diagnosis_present = True
+                    break
 
-                if str(df.iloc[i]["ao_classification"]) != "0":
-                    if diagnosis in str(df.iloc[i]["ao_classification"]):
-                        column_diagnosis.append(1)
-                    else:
-                        column_diagnosis.append(0)
-                else:
-                    column_diagnosis.append(0)
+            if not diagnosis_present:
+                column_diagnosis.append(0)
 
-                if len(df.loc[data_frame["osteopenia"] == 1]) >= 1:
-                    column_osteopenia.append(1)
-                else:
-                    column_osteopenia.append(0)
-
-                break
-
-        diagnosis_df = pd.DataFrame({diagnosis: column_diagnosis})
-        osteopenia_df = pd.DataFrame({'osteopenia': column_osteopenia})
-        corr_matrix = pd.crosstab(osteopenia_df['osteopenia'], diagnosis_df[diagnosis])
+        # Calculate correlation matrix
+        corr_matrix = pd.crosstab(osteopenia_df['osteopenia'],
+                                  pd.DataFrame({diagnosis: column_diagnosis})[diagnosis])
         cramer = cramers_v(corr_matrix)
         p_value = ss.chi2_contingency(corr_matrix)[1]
-        if p_value <= 0.05 and cramer >= 0.1:
-            if 0.1 <= cramer < 0.3:
-                correlation_text = "Small"
-            elif 0.3 <= cramer < 0.5:
-                correlation_text = "Medium"
-            else:
-                correlation_text = "Large"
 
-            corr_dict = {
-                "diagnosis": diagnosis,
-                "cramer": cramer,
-                "correlation_interpretation": correlation_text,
-                "p-value": p_value,
-                "num_of_diagnoses": np.sum(column_diagnosis)
-            }
+        # if the correlation isn't significant
+        if p_value > 0.05 or cramer < 0.1:
+            continue
 
-            correlation_dicts.append(corr_dict)
+        if 0.1 <= cramer < 0.3:
+            correlation_text = "Small"
+        elif 0.3 <= cramer < 0.5:
+            correlation_text = "Medium"
+        else:
+            correlation_text = "Large"
 
-            temp_df = pd.DataFrame(data=[[1.0, cramer], [cramer, 1.0]], index=['osteopenia', diagnosis],
-                                   columns=['osteopenia', diagnosis])
+        print(f"Osteopenia vs {diagnosis}: {cramer} ({correlation_text} Correlation), p-value: {p_value}, "
+              f"diagnosis count: {np.sum(column_diagnosis)}")
 
-            plt.figure()
-            plt.title(diagnosis + " osteopenia_corr_matrix")
-            sn.heatmap(temp_df, annot=True, xticklabels=True, yticklabels=True)
-            plt.savefig(f"plots/diagnoses_correlation_plots/osteopenia_diagnosis{image_name_counter}_corr_matrix.png")
-            image_name_counter += 1
+        correlation_df = pd.DataFrame(data=[[1.0, cramer], [cramer, 1.0]], index=['osteopenia', diagnosis],
+                                      columns=['osteopenia', diagnosis])
 
-    for corr_dict in correlation_dicts:
-        print(
-            f"Osteopenia vs {corr_dict['diagnosis']}: {corr_dict['cramer']} "
-            f"({corr_dict['correlation_interpretation']} Correlation), p-value: {corr_dict['p-value']}, "
-            f"diagnosis count: {corr_dict['num_of_diagnoses']}")
+        # Plot correlation Matrix
+        plt.figure()
+        plt.title(diagnosis + " osteopenia_corr_matrix")
+        sn.heatmap(correlation_df, annot=True, xticklabels=True, yticklabels=True)
+        plt.savefig(
+            f"plots/diagnoses_correlation_plots/osteopenia_diagnosis{diagnosis.replace('/', '-')}_corr_matrix.png")
 
 
 if __name__ == "__main__":
