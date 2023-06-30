@@ -40,7 +40,7 @@ def main():
     num_of_classes = {}
     osteopenia_patient_ids = []
     for patient in os.listdir(OSTEOPENIA_DATASET):
-
+        new_patient = True
         # ignore csv file
         if patient == "osteopenia_dataset.csv":
             continue
@@ -84,9 +84,9 @@ def main():
                  patient_lbl['initial_exam'], patient_lbl['fracture_visible'], patient_lbl['metal'],
                  patient_lbl['cast']])
 
-            if not isNaN(patient_lbl['ao_classification']):
+            if not isNaN(patient_lbl['ao_classification']) and new_patient:
                 classes = patient_lbl['ao_classification'].split(";")
-
+                new_patient = False
                 count = len(classes)
                 if count in num_of_classes:
                     num_of_classes[count] = num_of_classes[count] + 1
@@ -165,15 +165,18 @@ def main():
 
     patients_without_osteopenia_diag = {}
     patients_without_osteopenia_count_frac = {}
+
+    done_patients = set()
     for i in range(len(df)):
 
         if df.iloc[i]['patient_id'] in osteopenia_patient_ids:
             continue
 
         ao_classification = df.iloc[i]['ao_classification']
-        if not isNaN(ao_classification):
+        if not isNaN(ao_classification) and not df.iloc[i]['patient_id'] in done_patients:
+            done_patients.add(df.iloc[i]['patient_id'])
             classes = ao_classification.split(";")
-
+            new_patient = False
             count = len(classes)
             if count in patients_without_osteopenia_count_frac:
                 patients_without_osteopenia_count_frac[count] = patients_without_osteopenia_count_frac[count] + 1
