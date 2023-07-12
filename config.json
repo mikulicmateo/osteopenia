@@ -1,3 +1,13 @@
 {
-
+  "osteopenia_dataset_csv_path": "/home/mateo/fakultet/research/osteopenia/osteopenia_dataset/osteopenia_dataset.csv",
+  "desired_image_size": 224,
+  "n_split_train_val_test": [5800,992,400],
+  "batch_size": 32,
+  "num_workers" : 6,
+  "early_stop": true,
+  "patience": 3,
+  "learning_rate": 1e-6,
+  "train_head_first": true,
+  "max_epoch": 100,
+  "test_model": true
 }
