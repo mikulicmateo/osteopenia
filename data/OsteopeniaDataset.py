@@ -1,13 +1,19 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import torchvision.transforms
 from torch.utils.data import Dataset
 import pandas as pd
 import cv2
 class OsteopeniaDataset(Dataset):
 
-        def __init__(self, data_file_path, desired_image_size: int):
+        def __init__(self, data_file_path, mean, std, desired_image_size: int):
             self.data_file = pd.read_csv(data_file_path)
             self.desired_image_size = desired_image_size
+            self.transform = torchvision.transforms.Compose([
+                    torchvision.transforms.ToPILImage(),
+                    torchvision.transforms.ToTensor(),
+                    torchvision.transforms.Normalize(mean=mean, std=std)
+            ])
 
         def __len__(self):
             return len(self.data_file)
@@ -15,8 +21,8 @@ class OsteopeniaDataset(Dataset):
         def __getitem__(self, index):
             image = self._get_image_by_index(index)
             label = self._get_label_by_index(index)
-            image = np.moveaxis(image, -1, 0)
-            image = image/255.
+            #image = np.moveaxis(image, -1, 0)
+            image = self.transform(image)
             return image, label
 
         def _get_image_by_index(self, index):
@@ -75,10 +81,13 @@ if __name__ == '__main__':
 
     ds = OsteopeniaDataset(
         '/home/mateo/fakultet/research/osteopenia/osteopenia_dataset/osteopenia_dataset.csv',
+        0.1698,
+        0.2043,
         224
     )
 
     im, lbl = ds[255]
+    print(im)
     print(im[0,155])
     print(len(ds))
     plt.figure()

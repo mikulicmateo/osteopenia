@@ -22,11 +22,35 @@ class Trainer:
 
         self.full_dataset = OsteopeniaDataset(
             self.config_dict['osteopenia_dataset_csv_path'],
+            self.config_dict['mean'],
+            self.config_dict['std'],
             self.config_dict['desired_image_size']
         )
 
-        self.training_data, self.validation_data, self.test_data = \
-            torch.utils.data.random_split(self.full_dataset, self.config_dict['n_split_train_val_test'])
+        # self.training_data, self.validation_data, self.test_data = \
+        #     torch.utils.data.random_split(self.full_dataset, self.config_dict['n_split_train_val_test'])
+        self.data_folder_path = os.path.join(os.getcwd(), 'data')
+
+        self.training_data = OsteopeniaDataset(
+            os.path.join(self.data_folder_path, 'training_dataset.csv'),
+            self.config_dict['mean'],
+            self.config_dict['std'],
+            self.config_dict['desired_image_size']
+        )
+
+        self.validation_data = OsteopeniaDataset(
+            os.path.join(self.data_folder_path, 'validation_dataset.csv'),
+            self.config_dict['mean'],
+            self.config_dict['std'],
+            self.config_dict['desired_image_size']
+        )
+
+        self.test_data = OsteopeniaDataset(
+            os.path.join(self.data_folder_path, 'test_dataset.csv'),
+            self.config_dict['mean'],
+            self.config_dict['std'],
+            self.config_dict['desired_image_size']
+        )
 
         self.batch_size = self.config_dict['batch_size']
         self.num_workers = self.config_dict['num_workers']
@@ -85,12 +109,12 @@ class Trainer:
 
         return correct / len(self.training_data), np.mean(losses)
 
-    def val_epoch(self):
+    def evaluate_epoch(self, dataloader, test=False):
         self.model.eval()
         with torch.no_grad():
             losses = []
             correct = 0
-            loop = tqdm(self.validation_dl, leave=False, unit="batch", mininterval=0)
+            loop = tqdm(dataloader, leave=False, unit="batch", mininterval=0)
             for features, labels in loop:
                 features = features.float().to(self.device)
                 labels = labels.to(self.device)
@@ -108,7 +132,14 @@ class Trainer:
                     accuracy=float(accuracy)
                 )
 
+        if test:
+            return correct / len(self.test_data), np.mean(losses)
         return correct / len(self.validation_data), np.mean(losses)
+    def val_epoch(self):
+        return self.evaluate_epoch(self.validation_dl)
+
+    def test_model(self):
+        return self.evaluate_epoch(self.test_dl, True)
 
     def create_model_state_dict(self, train_loss, train_accuracy, validation_loss, validation_accuracy, epoch):
         model_state = {
@@ -140,6 +171,8 @@ class Trainer:
         history = defaultdict(list)
 
         for epoch in range(self.start_epoch, self.start_epoch + self.epochs_to_train):
+            print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+            print(f"Epoch {epoch}")
             last_epoch = epoch
             train_accuracy, train_loss = self.train_epoch(epoch)
             print(f"Training Loss: {train_loss}, Training accuracy: {train_accuracy}")
@@ -177,6 +210,7 @@ class Trainer:
         plt.legend()
         plt.ylim([0, 1])
         plt.savefig("training_acc.png")
+        plt.show()
 
         # Plot training and validation accuracy
         plt.plot(history['train_loss'], label='train loss')
@@ -189,6 +223,7 @@ class Trainer:
         plt.legend()
         plt.ylim([0, 1])
         plt.savefig("training_loss.png")
+        plt.show()
 
         print("Finished training")
 
