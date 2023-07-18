@@ -9,7 +9,8 @@ from torch import nn
 import torch
 from tqdm import tqdm
 import matplotlib.pyplot as plt
-import numpy as np
+import pandas as pd
+
 def choose_model(name, freeze):
     if name == 'vgg11':
         return VGG(vgg11(weights=VGG11_Weights.DEFAULT), freeze=freeze)
@@ -66,9 +67,10 @@ tp = 0
 fp = 0
 fn = 0
 tn = 0
+indices_m0 = []
+indices_m1 = []
 
-misclassified_0 = []
-misclassified_1 = []
+k = 0
 for image, label in loop:
     prediction = trainer.predict(image).detach().cpu().numpy()[0,0]
     if prediction >= 0.5:
@@ -76,14 +78,14 @@ for image, label in loop:
             tp += 1
         else:
             fp += 1
-            misclassified_0.append(image.detach().cpu().numpy()[0])
+            indices_m0.append(k)
     else:
         if label == 1:
             fn += 1
-            misclassified_1.append(image.detach().cpu().numpy()[0])
+            indices_m1.append(k)
         else:
             tn += 1
-
+    k += 1
 
 precision = tp/(tp + fp)
 recall = tp/(tp + fn)
@@ -100,6 +102,10 @@ print(f"tn percentage = {tn/(tp+fp+fn+tn)}")
 print(f"fn percentage = {fn/(tp+fp+fn+tn)}")
 print("- - - - - - - - - - - - ")
 
+df = pd.read_csv(os.path.join(os.getcwd(), "data", "test_dataset.csv"))
+paths = df['filestem'].to_numpy()
+misclassified_0 = [paths[k] for k in indices_m0]
+misclassified_1 = [paths[k] for k in indices_m1]
 
 
 f, axarr = plt.subplots((len(misclassified_0)//2), 2, figsize=(15,15))
@@ -108,8 +114,8 @@ f.suptitle("False Positives", fontsize=30)
 row = 0
 column = 0
 for i in range(len(misclassified_0)):
-    image = np.moveaxis(misclassified_0[i], 0, -1)
-    axarr[row, column].imshow(image)
+    image = plt.imread(misclassified_0[i])
+    axarr[row, column].imshow(image, cmap='gray')
     axarr[row, column].axis('off')
     if i%2 == 0:
         if column == 1:
@@ -129,8 +135,8 @@ f.suptitle("False Negatives", fontsize=30)
 row = 0
 column = 0
 for i in range(len(misclassified_1)):
-    image = np.moveaxis(misclassified_1[i], 0, -1)
-    axarr[row, column].imshow(image)
+    image = plt.imread(misclassified_1[i])
+    axarr[row, column].imshow(image, cmap='gray')
     if i%2 == 0:
         if column == 1:
             column = 0
