@@ -141,6 +141,13 @@ class Trainer:
     def test_model(self):
         return self.evaluate_epoch(self.test_dl, True)
 
+    def predict(self, image):
+        self.model.eval()
+        with torch.no_grad():
+            image = image.float().to(self.device)
+            prediction = self.model(image)
+        return prediction.float()
+
     def create_model_state_dict(self, train_loss, train_accuracy, validation_loss, validation_accuracy, epoch):
         model_state = {
             'time': str(datetime.datetime.now()),
