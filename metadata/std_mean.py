@@ -1,9 +1,13 @@
-import os.path
+import os
 import numpy as np
+
+
+import sys
+sys.path.insert(0, os.path.dirname(os.getcwd()))
+
 from data.OsteopeniaDataset import OsteopeniaDataset
 from torch.utils.data import DataLoader
 import json
-import os
 import torch
 
 with open(os.path.join(os.path.dirname(os.getcwd()), 'config.json'), "r") as config_file:
