@@ -1,5 +1,6 @@
 import datetime
 import json
+from torch import nn
 import os
 from collections import defaultdict
 import matplotlib.pyplot as plt
@@ -8,15 +9,19 @@ import numpy as np
 from torch.utils.data import DataLoader
 from data.OsteopeniaDataset import OsteopeniaDataset
 from tqdm import tqdm
+import pandas as pd
+import xlsxwriter
 
 
 class Trainer:
-    def __init__(self, config_file_path, model, model_name, optimizer, loss_fn, start_epoch):
-        with open(config_file_path, "r") as config_file:
-            self.config_dict = json.load(config_file)
+    def __init__(self, config_dict, model, model_name, optimizer,
+                  loss_fn, start_epoch, results_output_dir, model_loaded = False):
+
+        self.model_loaded = model_loaded
+        self.config_dict =  config_dict
 
         if torch.cuda.is_available():
-            self.device = "cuda"
+            self.device = self.config_dict["device"]
         else:
             self.device = "cpu"
 
@@ -64,7 +69,9 @@ class Trainer:
 
         self.model_name = model_name
         self.model = model
-        self.model.to(self.device)
+        if not self.model_loaded:
+            self.model = nn.DataParallel(model, device_ids=self.config_dict["device_ids"])
+            self.model = self.model.to(self.device)
         self.optimizer = optimizer
         self.loss_fn = loss_fn
 
@@ -73,6 +80,10 @@ class Trainer:
         self.epochs_to_train = self.max_epoch - start_epoch
         self.early_stop = self.config_dict['early_stop']
         self.patience = self.config_dict['patience']
+
+        self.results_output_dir = results_output_dir
+        if not os.path.exists(self.results_output_dir):
+            os.makedirs(self.results_output_dir)
 
     def create_dataloader(self, data, batch_size, num_workers, shuffle=True):
         return DataLoader(data, batch_size=batch_size, num_workers=num_workers, shuffle=shuffle)
@@ -151,7 +162,7 @@ class Trainer:
     def create_model_state_dict(self, train_loss, train_accuracy, validation_loss, validation_accuracy, epoch):
         model_state = {
             'time': str(datetime.datetime.now()),
-            'model_state': self.model.state_dict(),
+            'model_state': self.model.module.state_dict(),
             'model_name': type(self.model).__name__,
             'optimizer_state': self.optimizer.state_dict(),
             'optimizer_name': type(self.optimizer).__name__,
@@ -168,6 +179,24 @@ class Trainer:
         torch.save(model_state, f"model/trained/last-{self.model_name}.pt")
         if best:
             torch.save(model_state, f"model/trained/best-{self.model_name}.pt")
+    
+    def export_metrics_to_xlsx(self, best_epoch, best_score, training_dict, validation_dict):
+        # Generate writer for a given model      
+        _writer = pd.ExcelWriter(self.results_output_dir+ 
+                                 f"{self.model_name}" + 
+                                 f"_{type (self.optimizer).__name__}: " +  
+                                 f"{self.config_dict['learning_rate']}" +
+                                 f"_{type (self.loss_fn).__name__}" + 
+                                 f"_frozen={(not self.model_loaded)}" +
+                                 f"_{best_epoch}" + f"_{best_score:5f}.xlsx", engine = 'xlsxwriter')
+
+        # Generate dataframes
+        _df_train = pd.DataFrame.from_dict(training_dict)
+        _df_valid = pd.DataFrame.from_dict(validation_dict)
+
+        _df_train.to_excel(_writer, sheet_name="Training", index = False)
+        _df_valid.to_excel(_writer, sheet_name="Validation", index = False)
+        _writer.close() 
 
     def train(self):
 
@@ -175,7 +204,8 @@ class Trainer:
         best_val_acc = 0
         best_epoch = 0
         last_epoch=0
-        history = defaultdict(list)
+        training_history = defaultdict(list)
+        validation_history = defaultdict(list)
 
         for epoch in range(self.start_epoch, self.start_epoch + self.epochs_to_train):
             print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
@@ -200,39 +230,16 @@ class Trainer:
                 print(f'Early stop @ epoch {epoch}, best epoch {best_epoch}')
                 break
 
-            history['train_acc'].append(train_accuracy.cpu().detach().numpy())
-            history['val_acc'].append(validation_accuracy.cpu().detach().numpy())
-            history['train_loss'].append(train_loss)
-            history['val_loss'].append(validation_loss)
+            training_history['train_acc'].append(train_accuracy.cpu().detach().numpy())
+            validation_history['val_acc'].append(validation_accuracy.cpu().detach().numpy())
+            training_history['train_loss'].append(train_loss)
+            validation_history['val_loss'].append(validation_loss)
             print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 
-        # Plot training and validation accuracy
-        plt.plot(history['train_acc'], label='train accuracy')
-        plt.plot(history['val_acc'], label='validation accuracy')
-
-        # Graph chars
-        plt.title('Training history')
-        plt.ylabel('Accuracy')
-        plt.xlabel('Epoch')
-        plt.legend()
-        plt.ylim([0, 1])
-        plt.savefig("training_acc.png")
-        plt.show()
-
-        # Plot training and validation accuracy
-        plt.plot(history['train_loss'], label='train loss')
-        plt.plot(history['val_loss'], label='validation loss')
-
-        # Graph chars
-        plt.title('Training history')
-        plt.ylabel('Loss')
-        plt.xlabel('Epoch')
-        plt.legend()
-        plt.ylim([0, 1])
-        plt.savefig("training_loss.png")
-        plt.show()
-
-        print("Finished training")
+        self.export_metrics_to_xlsx(best_epoch,
+                                    best_val_acc,
+                                    training_history,
+                                    validation_history)        
 
         if self.early_stop:
             self.start_epoch = best_epoch
