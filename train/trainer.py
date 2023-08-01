@@ -15,22 +15,22 @@ import xlsxwriter
 
 class Trainer:
     def __init__(self, config_dict, model, model_name, optimizer,
-                  loss_fn, start_epoch, results_output_dir, model_loaded = False):
+                 loss_fn, start_epoch, results_output_dir, model_loaded=False):
 
         self.model_loaded = model_loaded
-        self.config_dict =  config_dict
+        self.config_dict = config_dict
 
         if torch.cuda.is_available():
             self.device = self.config_dict["device"]
         else:
             self.device = "cpu"
 
-        self.full_dataset = OsteopeniaDataset(
-            self.config_dict['osteopenia_dataset_csv_path'],
-            self.config_dict['mean'],
-            self.config_dict['std'],
-            self.config_dict['desired_image_size']
-        )
+        # self.full_dataset = OsteopeniaDataset(
+        #    self.config_dict['osteopenia_dataset_csv_path'],
+        #    self.config_dict['mean'],
+        #    self.config_dict['std'],
+        #    self.config_dict['desired_image_size']
+        # )
 
         # self.training_data, self.validation_data, self.test_data = \
         #     torch.utils.data.random_split(self.full_dataset, self.config_dict['n_split_train_val_test'])
@@ -40,6 +40,9 @@ class Trainer:
             os.path.join(self.data_folder_path, 'training_dataset.csv'),
             self.config_dict['mean'],
             self.config_dict['std'],
+            self.config_dict['horizontal_flip_probability'],
+            self.config_dict['rotation_probability'],
+            self.config_dict['rotation_angle'],
             self.config_dict['desired_image_size']
         )
 
@@ -47,6 +50,9 @@ class Trainer:
             os.path.join(self.data_folder_path, 'validation_dataset.csv'),
             self.config_dict['mean'],
             self.config_dict['std'],
+            0,
+            0,
+            0,
             self.config_dict['desired_image_size']
         )
 
@@ -54,6 +60,9 @@ class Trainer:
             os.path.join(self.data_folder_path, 'test_dataset.csv'),
             self.config_dict['mean'],
             self.config_dict['std'],
+            0,
+            0,
+            0,
             self.config_dict['desired_image_size']
         )
 
@@ -146,6 +155,7 @@ class Trainer:
         if test:
             return correct / len(self.test_data), np.mean(losses)
         return correct / len(self.validation_data), np.mean(losses)
+
     def val_epoch(self):
         return self.evaluate_epoch(self.validation_dl)
 
@@ -175,35 +185,36 @@ class Trainer:
         return model_state
 
     def save_model(self, train_loss, train_accuracy, validation_loss, validation_accuracy, epoch, best):
-        model_state = self.create_model_state_dict(train_loss, train_accuracy, validation_loss, validation_accuracy, epoch)
+        model_state = self.create_model_state_dict(train_loss, train_accuracy, validation_loss, validation_accuracy,
+                                                   epoch)
         torch.save(model_state, f"model/trained/last-{self.model_name}.pt")
         if best:
             torch.save(model_state, f"model/trained/best-{self.model_name}.pt")
-    
+
     def export_metrics_to_xlsx(self, best_epoch, best_score, training_dict, validation_dict):
         # Generate writer for a given model      
-        _writer = pd.ExcelWriter(self.results_output_dir+ 
-                                 f"{self.model_name}" + 
-                                 f"_{type (self.optimizer).__name__}: " +  
+        _writer = pd.ExcelWriter(self.results_output_dir +
+                                 f"{self.model_name}" +
+                                 f"_{type(self.optimizer).__name__}: " +
                                  f"{self.config_dict['learning_rate']}" +
-                                 f"_{type (self.loss_fn).__name__}" + 
+                                 f"_{type(self.loss_fn).__name__}" +
                                  f"_frozen={(not self.model_loaded)}" +
-                                 f"_{best_epoch}" + f"_{best_score:5f}.xlsx", engine = 'xlsxwriter')
+                                 f"_{best_epoch}" + f"_{best_score:5f}.xlsx", engine='xlsxwriter')
 
         # Generate dataframes
         _df_train = pd.DataFrame.from_dict(training_dict)
         _df_valid = pd.DataFrame.from_dict(validation_dict)
 
-        _df_train.to_excel(_writer, sheet_name="Training", index = False)
-        _df_valid.to_excel(_writer, sheet_name="Validation", index = False)
-        _writer.close() 
+        _df_train.to_excel(_writer, sheet_name="Training", index=False)
+        _df_valid.to_excel(_writer, sheet_name="Validation", index=False)
+        _writer.close()
 
     def train(self):
 
         best_val_loss = float('inf')
         best_val_acc = 0
         best_epoch = 0
-        last_epoch=0
+        last_epoch = 0
         training_history = defaultdict(list)
         validation_history = defaultdict(list)
 
@@ -239,7 +250,7 @@ class Trainer:
         self.export_metrics_to_xlsx(best_epoch,
                                     best_val_acc,
                                     training_history,
-                                    validation_history)        
+                                    validation_history)
 
         if self.early_stop:
             self.start_epoch = best_epoch
