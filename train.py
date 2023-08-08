@@ -1,4 +1,4 @@
-from train.trainer import Trainer
+from trainer.trainer import Trainer
 from util.train_util import *
 import torch
 import json
@@ -70,9 +70,9 @@ def diffusion_start_load(model_name, config_dict):
     return trainer
 
 
-def diffusion_reset_load(model_name, path, config_dict):
+def diffusion_reset_load(model_name, path, learning_rate, config_dict):
     model = choose_model(model_name, False)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=config_dict["learning_rate"], weight_decay=1)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1)
 
     model, _, model_epoch = load_model(os.path.join(os.getcwd(), path),
                                        model,
@@ -150,6 +150,7 @@ def train(config_dict):
 
 def diffusion_train(config_dict):
     model_name = config_dict['model_name']
+    learning_rate = config_dict["learning_rate"]
 
     if config_dict['freeze_ratio'] is not list:
         freezing_ratios = list(np.arange(1.0, -0.0, -config_dict['freeze_ratio']))
@@ -162,14 +163,15 @@ def diffusion_train(config_dict):
     print("################ Starting process of diffusion training ################")
     print("########################################################################")
     for i, ratio in enumerate(freezing_ratios):
-        print(f"******************* Stage {i}/{len(freezing_ratios)} *******************")
+        print(f"******************* Stage {i}/{len(freezing_ratios)-1} *******************")
         print(f"USING MODEL: {model_name}, WEIGHTS: FROZEN, ratio: {ratio}")
 
         if i == 0:
             trainer = diffusion_start_load(model_name, config_dict)
             trainer.freeze_model_part(ratio)
         else:
-            trainer = diffusion_reset_load(model_name, f"model/trained/stage-{i - 1}/best-{model_name}.pt", config_dict)
+            learning_rate = learning_rate * 0.1
+            trainer = diffusion_reset_load(model_name, f"model/trained/stage-{i - 1}/best-{model_name}.pt", learning_rate, config_dict)
             trainer.freeze_model_part(ratio)
 
         trainer.stage = i
@@ -179,7 +181,7 @@ def diffusion_train(config_dict):
 
     if config_dict["test_model"]:
         for i, _ in enumerate(freezing_ratios):
-            print(f"******************* Test best model stage {i} *******************")
+            print(f"******************* Test best {model_name} stage {i} *******************")
             test(config_dict, i)
 
 

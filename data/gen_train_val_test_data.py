@@ -21,7 +21,7 @@ test_percentage = config_dict['n_split_train_val_test'][2]
 
 x_train, X_test, y_train, Y_test = train_test_split(images, labels, test_size=1 - train_percentage, random_state=random_state) # split to get training
 
-x_val, x_test, y_val, y_test = train_test_split(X_test, Y_test, test_size=(val_percentage*train_percentage), random_state=random_state) # split to get val & test
+x_val, x_test, y_val, y_test = train_test_split(X_test, Y_test, test_size=test_percentage/(1 - train_percentage), random_state=random_state) # split to get val & test
 
 # create dfs
 training_df = pd.DataFrame({'filestem':x_train, 'osteopenia':y_train})
