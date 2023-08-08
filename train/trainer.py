@@ -43,6 +43,10 @@ class Trainer:
             self.config_dict['horizontal_flip_probability'],
             self.config_dict['rotation_probability'],
             self.config_dict['rotation_angle'],
+            self.config_dict['brightness'],
+            self.config_dict['contrast'],
+            self.config_dict['saturation'],
+            self.config_dict['hue'],
             self.config_dict['desired_image_size']
         )
 
@@ -53,6 +57,10 @@ class Trainer:
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
             self.config_dict['desired_image_size']
         )
 
@@ -60,6 +68,10 @@ class Trainer:
             os.path.join(self.data_folder_path, 'test_dataset.csv'),
             self.config_dict['mean'],
             self.config_dict['std'],
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -89,6 +101,8 @@ class Trainer:
         self.epochs_to_train = self.max_epoch - start_epoch
         self.early_stop = self.config_dict['early_stop']
         self.patience = self.config_dict['patience']
+
+        self.stage = -1
 
         self.results_output_dir = results_output_dir
         if not os.path.exists(self.results_output_dir):
@@ -187,13 +201,34 @@ class Trainer:
     def save_model(self, train_loss, train_accuracy, validation_loss, validation_accuracy, epoch, best):
         model_state = self.create_model_state_dict(train_loss, train_accuracy, validation_loss, validation_accuracy,
                                                    epoch)
-        torch.save(model_state, f"model/trained/last-{self.model_name}.pt")
+
+        if self.stage == -1:
+            save_path_last = f"model/trained/"
+            save_path_best = f"model/trained/"
+        else:
+            save_path_last = f"model/trained/stage-{self.stage}/"
+            save_path_best = f"model/trained/stage-{self.stage}/"
+
+        if not os.path.exists(save_path_last):
+            os.makedirs(save_path_last)
+        if not os.path.exists(save_path_best):
+            os.makedirs(save_path_best)
+
+        torch.save(model_state, save_path_last + f"last-{self.model_name}.pt")
         if best:
-            torch.save(model_state, f"model/trained/best-{self.model_name}.pt")
+            torch.save(model_state, save_path_best + f"best-{self.model_name}.pt")
 
     def export_metrics_to_xlsx(self, best_epoch, best_score, training_dict, validation_dict):
-        # Generate writer for a given model      
-        _writer = pd.ExcelWriter(self.results_output_dir +
+
+        if self.stage != -1:
+            save_dir = self.results_output_dir + f"/stage_{self.stage}/"
+            if not os.path.exists(save_dir):
+                os.makedirs(save_dir)
+        else:
+            save_dir = self.results_output_dir
+
+        # Generate writer for a given model
+        _writer = pd.ExcelWriter(save_dir +
                                  f"{self.model_name}" +
                                  f"_{type(self.optimizer).__name__}: " +
                                  f"{self.config_dict['learning_rate']}" +
@@ -258,3 +293,33 @@ class Trainer:
         else:
             self.start_epoch = last_epoch
             self.epochs_to_train = self.max_epoch - self.start_epoch
+
+    def freeze_model_part(self, freeze_ratio: float):
+        """
+        Method which freezes part of the model.
+
+        Args:
+            * model, pytorch model, model which is suppose to be frozen
+            * freeze_ratio, float, part of the model which is going to be frozen. 0.8 means that first
+            80% of the layers will be frozen.
+        """
+
+        print(f"Freezing ratio: {freeze_ratio}")
+
+        # First bring everything trainable - starting position
+        for param in self.model.parameters():
+            param.requires_grad = True
+
+        # Calculate ratio
+        number_of_layers = len(list(self.model.named_parameters()))
+        freeze_border = int(freeze_ratio * number_of_layers)
+
+        # Freeze layer
+        for i, param in enumerate(self.model.parameters()):
+            if i < freeze_border:
+                param.requires_grad = False
+
+        # Fix bias layer - params + bias must both be frozen
+        for name, param in self.model.named_parameters():
+            if param.requires_grad and 'bias' in name:
+                param.requres_grad = False

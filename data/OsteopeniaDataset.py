@@ -9,17 +9,30 @@ import cv2
 class OsteopeniaDataset(Dataset):
 
     def __init__(self, data_file_path, mean, std, horizontal_flip_probability, rotation_probability, rotation_angle,
-                 desired_image_size: int):
+                 brightness, contrast, saturation, hue, desired_image_size: int):
         self.data_file = pd.read_csv(data_file_path)
         self.desired_image_size = desired_image_size
-        self.transform = torchvision.transforms.Compose([
-            torchvision.transforms.ToPILImage(),
-            torchvision.transforms.ToTensor(),
-            torchvision.transforms.Normalize(mean=mean, std=std),
-            torchvision.transforms.RandomHorizontalFlip(horizontal_flip_probability)
-        ])
         self.rotation_probability = rotation_probability
         self.rotation_angle = rotation_angle
+
+        if brightness == 0:
+            self.transform = torchvision.transforms.Compose([
+                torchvision.transforms.ToPILImage(),
+                torchvision.transforms.ToTensor(),
+                torchvision.transforms.RandomHorizontalFlip(horizontal_flip_probability),
+                torchvision.transforms.Normalize(mean=mean, std=std)
+            ])
+        else:
+            self.transform = torchvision.transforms.Compose([
+                torchvision.transforms.ToPILImage(),
+                torchvision.transforms.ToTensor(),
+                torchvision.transforms.RandomHorizontalFlip(horizontal_flip_probability),
+                torchvision.transforms.ColorJitter(brightness=brightness,
+                                                   contrast=contrast,
+                                                   saturation=saturation,
+                                                   hue=hue),
+                torchvision.transforms.Normalize(mean=mean, std=std),
+            ])
 
     def __len__(self):
         return len(self.data_file)

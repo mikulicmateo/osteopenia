@@ -1,4 +1,4 @@
-from train import train
+from train import train, diffusion_train
 import json
 import os
 
@@ -12,4 +12,8 @@ with open(config_file_path, "r") as config_file:
 
 for model_name in model_names:
     config_dict["model_name"] = model_name
-    train(config_dict)
+
+    if config_dict["diffusion_train"]:
+        diffusion_train(config_dict)
+    else:
+        train(config_dict)
