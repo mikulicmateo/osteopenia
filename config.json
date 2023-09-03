@@ -1,20 +1,21 @@
 {
-  "osteopenia_dataset_csv_path": "/scratch/student/mikulic/osteopenia/osteopenia_dataset/osteopenia_dataset.csv",
+  "osteopenia_dataset_csv_path": "/home/mateo/fakultet/research/osteopenia/osteopenia_dataset/osteopenia_dataset.csv",
+  "additional_annotations_path": "/home/mateo/fakultet/research/osteopenia/dataset/annotations_all",
   "desired_image_size": 512,
-  "horizontal_flip_probability": 0.5,
+  "horizontal_flip_probability":0.5,
   "rotation_probability": 0.5,
   "rotation_angle": 20,
   "n_split_train_val_test": [0.8, 0.1, 0.1],
   "random_state": 95,
   "batch_size": 32,
-  "num_workers" : 32,
+  "num_workers" : 8,
   "early_stop": true,
   "patience": 3,
   "learning_rate": 1.65e-5,
   "train_head_first": true,
   "max_epoch": 100,
   "test_model": true,
-  "model_name": "resnet18",
+  "model_name": "efficientnet_b3",
   "mean": [0.485, 0.456, 0.406],
   "std": [0.229, 0.224, 0.225],
   "brightness": [0.8, 1.2],
@@ -22,7 +23,8 @@
   "saturation": 0.5,
   "hue": 0.5,
   "device": "cuda",
-  "device_ids": [0, 1, 2, 3],
+  "device_ids": [0],
   "diffusion_train": true,
-  "freeze_ratio": 0.25
+  "freeze_ratio": 0.2
 }
+

@@ -47,7 +47,8 @@ class Trainer:
             self.config_dict['contrast'],
             self.config_dict['saturation'],
             self.config_dict['hue'],
-            self.config_dict['desired_image_size']
+            self.config_dict['desired_image_size'],
+            self.config_dict['additional_annotations_path']
         )
 
         self.validation_data = OsteopeniaDataset(
@@ -61,7 +62,8 @@ class Trainer:
             0,
             0,
             0,
-            self.config_dict['desired_image_size']
+            self.config_dict['desired_image_size'],
+            self.config_dict['additional_annotations_path']
         )
 
         self.test_data = OsteopeniaDataset(
@@ -75,7 +77,10 @@ class Trainer:
             0,
             0,
             0,
-            self.config_dict['desired_image_size']
+            self.config_dict['desired_image_size'],
+            self.config_dict['additional_annotations_path'],
+            #remove_fractures=True,
+            center_image_by_axis=False
         )
 
         self.batch_size = self.config_dict['batch_size']

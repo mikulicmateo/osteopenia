@@ -55,7 +55,7 @@ def test(config_dict, stage=-1):
 ######################################################################
 def diffusion_start_load(model_name, config_dict):
     model = choose_model(model_name, False)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=config_dict["learning_rate"], weight_decay=1)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=config_dict["learning_rate"])
 
     trainer = Trainer(
         config_dict,
@@ -72,7 +72,7 @@ def diffusion_start_load(model_name, config_dict):
 
 def diffusion_reset_load(model_name, path, learning_rate, config_dict):
     model = choose_model(model_name, False)
-    optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate, weight_decay=1)
+    optimizer = torch.optim.AdamW(model.parameters(), lr=learning_rate)
 
     model, _, model_epoch = load_model(os.path.join(os.getcwd(), path),
                                        model,
@@ -170,7 +170,7 @@ def diffusion_train(config_dict):
             trainer = diffusion_start_load(model_name, config_dict)
             trainer.freeze_model_part(ratio)
         else:
-            learning_rate = learning_rate * 0.1
+            learning_rate = learning_rate * 0.5
             trainer = diffusion_reset_load(model_name, f"model/trained/stage-{i - 1}/best-{model_name}.pt", learning_rate, config_dict)
             trainer.freeze_model_part(ratio)
 
@@ -192,6 +192,7 @@ if __name__ == "__main__":
         config_dict = json.load(config_file)
 
     if config_dict["diffusion_train"]:
-        diffusion_train(config_dict)
+       diffusion_train(config_dict)
     else:
-        train(config_dict)
+       train(config_dict)
+    #test(config_dict, 9)
