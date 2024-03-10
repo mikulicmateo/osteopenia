@@ -38,7 +38,7 @@ git clone https://github.com/mikulicmateo/osteopenia.git
 
 ### Download the models
 
-Download our models from url. 
+Download our models from [url](https://drive.google.com/drive/folders/17xFmrAcx-Akh-7VGskgeGj3jRDZKG-Mi?usp=sharing). 
 Place the models in `OsteopeniaMinimumWorkingExample/models`.
 
 ### Preparing environment
