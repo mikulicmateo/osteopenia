@@ -1,6 +1,6 @@
 {
-  "osteopenia_dataset_csv_path": "insert/your/path/osteopenia/filtered_dataset/dataset/filtered_dataset.csv",
-  "additional_annotations_path": "insert/your/path/osteopenia/dataset/annotations_all",
+  "osteopenia_dataset_csv_path": "/insert/your/path/osteopenia/filtered_dataset/dataset/filtered_dataset.csv",
+  "additional_annotations_path": "/insert/your/path/osteopenia/dataset/annotations_all",
   "results_output_dir": "model/results/",
   "model_id": "",
   "desired_image_size": 512,

@@ -2,6 +2,34 @@ import os
 import pandas as pd
 import json
 import shutil
+import xml.etree.ElementTree as ET
+
+
+def get_dummy_points(image_name, title, root):
+    image = list(filter(lambda x: image_name in x.get('name'), root.findall(".//image[@name]")))
+
+    if len(image) == 0:
+        return []
+    image = image[0]
+
+    label_type = 'box'
+    if title == 'periostealreaction':
+        label_type = 'polygon'
+
+    points = []
+    for label in image.findall(label_type):
+        if label_type == 'polygon':
+            points_string_arr = [point.split(',') for point in label.get('points').split(';')]
+            shape = [[float(x), float(y)] for x, y in points_string_arr]
+        if label_type == 'box':
+            shape = [
+                [float(label.get('xtl')), float(label.get('ytl'))],
+                [float(label.get('xbr')), float(label.get('ybr'))]
+            ]
+        points.append(shape)
+
+    return points
+
 
 PROJECT_PATH = os.path.dirname(os.getcwd())
 DATASET_DIRECTORY_PATH = os.path.join(PROJECT_PATH, "dataset")
@@ -19,7 +47,16 @@ for i in range(len(data)):
     if data.iloc[i]['osteopenia'] == 1:
         k.add(data.iloc[i]['patient_id'])
 
-CLASS_TITLES = ["fracture", "metal", "periostealreaction"]
+CLASS_TITLES = ["fracture", "metal", "periostealreaction", "text"]
+
+# Parse dummy annotation files
+class_roots = dict()
+for class_title in CLASS_TITLES:
+    if class_title == 'text':
+        continue
+    tree = ET.parse(os.path.join(DATASET_DIRECTORY_PATH, f'{class_title}_dummy_annotations.xml'))
+    root = tree.getroot()
+    class_roots[class_title] = root
 
 # Dicts of patients that have osteopenia for each image
 dict_list = []
@@ -27,7 +64,7 @@ for key in k:
     df = data.loc[data['patient_id'] == key]
     patient_path = os.path.join(FILTERED_DATASET_DIRECTORY_PATH, f"patient_id_{str(key)}")
     for j in range(len(df)):
-        folder_path = os.path.join(patient_path, f"image_{str(j+1)}")
+        folder_path = os.path.join(patient_path, f"image_{str(j + 1)}")
         row_dict = df.iloc[j].to_dict()
         image_name = row_dict['filestem']
 
@@ -46,13 +83,19 @@ for key in k:
 
         # Add class title points to json
         for title in CLASS_TITLES:
-                row_dict[title] = []
+            row_dict[title] = []
 
         for object in annotations_dict["objects"]:
             title = object.get("classTitle")
             if title in CLASS_TITLES:
                 points = object["points"]["exterior"]
                 row_dict[title].append(points)
+
+        for title in CLASS_TITLES:
+            if len(row_dict[title]) != 0 or title == 'text':
+                continue
+
+            row_dict[title] = get_dummy_points(image_name, title, class_roots[title])
 
         # Add image path to dict
         row_dict['filestem'] = os.path.join(folder_path, row_dict['filestem'] + '.png')

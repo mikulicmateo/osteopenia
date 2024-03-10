@@ -1,0 +1,6 @@
+jupyter
+torch
+torchvision
+torchaudio
+grad-cam
+pandas

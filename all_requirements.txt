@@ -1,0 +1,8 @@
+jupyter
+torch
+torchvision
+torchaudio
+grad-cam
+pandas
+imutils
+xlsxwriter
