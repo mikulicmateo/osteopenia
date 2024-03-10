@@ -7,7 +7,7 @@ This is official repository of our paper named in title.
 
 <br/>
 
-![result image](https://github.com/mikulicmateo/osteopenia/media_readme/blob/master/gradcam_3.png?raw=true)
+![result image](https://github.com/mikulicmateo/osteopenia/blob/master/media_readme/gradcam_3.png?raw=true)
 
 ### Abstract
 
@@ -67,7 +67,7 @@ pip install -r minimum_requirements.txt
 
 To test our minimum working code example just load `OsteopeniaMinimumWorkingExample/ExampleNotebook.ipynb`.
 
-![output image](https://github.com/mikulicmateo/osteopenia/media_readme/blob/master/output.png?raw=true)
+![output image](https://github.com/mikulicmateo/osteopenia/blob/master/media_readme/output.png?raw=true)
 
 <br/>
 <br/>
@@ -156,7 +156,7 @@ python3 mask_dataset_images.py
 <br/>
 
 
-![mask image](https://github.com/mikulicmateo/osteopenia/media_readme/blob/master/mask_mosaic.png?raw=true)
+![mask image](https://github.com/mikulicmateo/osteopenia/blob/master/media_readme/mask_mosaic.png?raw=true)
 
 <br/>
 <br/>
@@ -179,7 +179,7 @@ python3 train_all.py
 
 <br/>
 
-![models image](https://github.com/mikulicmateo/osteopenia/media_readme/blob/master/test-mosaic-1.png?raw=true)
+![models image](https://github.com/mikulicmateo/osteopenia/blob/master/media_readme/test-mosaic-1.png?raw=true)
 
 
 
