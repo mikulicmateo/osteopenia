@@ -76,7 +76,7 @@ To test our minimum working code example just load `OsteopeniaMinimumWorkingExam
 
 ### Clone repository
 
-To test our minimal working sample please clone this repository:
+To reproduce our results please clone this repository:
 ```bash
 git clone https://github.com/mikulicmateo/osteopenia.git
 ```
@@ -104,7 +104,7 @@ Don't foget to source it:
 source venv/bin/activate
 ```
 
-We prepared `minimum_requirements.txt` to get you started as soon as possible.
+We prepared `all_requirements.txt` to get you started as soon as possible.
 Just run:
 ```bash
 pip install -r all_requirements.txt
