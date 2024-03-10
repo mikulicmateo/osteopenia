@@ -161,13 +161,24 @@ python3 mask_dataset_images.py
 <br/>
 <br/>
 
+Change directory to `data` in project directory:
+
+```bash
+cd ../data
+```
+
+Run `gen_train_val_test_data.py` script to generate train, validation and test split:
+```bash
+python3 gen_train_val_test_data.py
+```
+
+<br/>
+
 ### Run training
 
 <br/>
 
-
 Change directory to main project directory:
-
 ```bash
 cd ..
 ```
