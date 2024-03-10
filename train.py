@@ -13,15 +13,15 @@ def test(config_dict, stage=-1):
     if stage == -1:
         model_path = f"model/trained/best-{config_dict['model_name']}.pt"
     else:
-        model_path = f"model/trained/stage-{stage}/best-{config_dict['model_name']}.pt"
+        model_path = f"model/trained/{config_dict['model_id']}_fm{config_dict['fracture_mask_probability']}_mm{config_dict['metal_mask_probability']}_pm{config_dict['periosteal_mask_probability']}/stage-{stage}/best-{config_dict['model_name']}.pt"
 
     m, o, m_e = load_model(os.path.join(os.getcwd(), model_path), m,
                            o, config_dict["device"], config_dict["device_ids"])
 
     if stage == -1:
-        test_output_dir = "model/results/test/"
+        test_output_dir = f"{config_dict['results_output_dir']}/test/"
     else:
-        test_output_dir = f"model/results/test/stage-{stage}/"
+        test_output_dir = f"{config_dict['results_output_dir']}/test/{config_dict['model_id']}_fm{config_dict['fracture_mask_probability']}_mm{config_dict['metal_mask_probability']}_pm{config_dict['periosteal_mask_probability']}/stage-{stage}/"
 
     t = Trainer(
         config_dict,
@@ -33,13 +33,15 @@ def test(config_dict, stage=-1):
         test_output_dir,
         True
     )
-
+    print(model_path)
     test_acc, test_loss = t.test_model()
     print(f"Test Loss: {test_loss}, Test accuracy: {test_acc}")
 
     test_dict = {}
     test_dict['test_acc'] = test_acc.cpu().detach().item()
     test_dict['test_loss'] = test_loss
+
+    print(test_dict)
 
     if stage == -1:
         file_name = f"{config_dict['model_name']}_lr{config_dict['learning_rate']}_epoch{m_e}.json"
@@ -64,7 +66,7 @@ def diffusion_start_load(model_name, config_dict):
         optimizer,
         nn.BCELoss(),
         1,
-        "model/results/"
+        f"{config_dict['results_output_dir']}/"
     )
 
     return trainer
@@ -87,7 +89,7 @@ def diffusion_reset_load(model_name, path, learning_rate, config_dict):
         optimizer,
         nn.BCELoss(),
         model_epoch,
-        "model/results/",
+        f"{config_dict['results_output_dir']}/",
         True
     )
 
@@ -109,7 +111,7 @@ def train(config_dict):
             optimizer,
             nn.BCELoss(),
             1,
-            "model/results/"
+            f"{config_dict['results_output_dir']}/"
         )
 
         trainer.train()
@@ -135,7 +137,7 @@ def train(config_dict):
             optimizer,
             nn.BCELoss(),
             model_epoch,
-            "model/results/",
+            f"{config_dict['results_output_dir']}/",
             True
         )
     else:
@@ -171,7 +173,7 @@ def diffusion_train(config_dict):
             trainer.freeze_model_part(ratio)
         else:
             learning_rate = learning_rate * 0.5
-            trainer = diffusion_reset_load(model_name, f"model/trained/stage-{i - 1}/best-{model_name}.pt", learning_rate, config_dict)
+            trainer = diffusion_reset_load(model_name, f"model/trained/{config_dict['model_id']}_fm{config_dict['fracture_mask_probability']}_mm{config_dict['metal_mask_probability']}_pm{config_dict['periosteal_mask_probability']}/stage-{i - 1}/best-{model_name}.pt", learning_rate, config_dict)
             trainer.freeze_model_part(ratio)
 
         trainer.stage = i
@@ -195,4 +197,5 @@ if __name__ == "__main__":
        diffusion_train(config_dict)
     else:
        train(config_dict)
-    #test(config_dict, 9)
+    
+    test(config_dict, 4)

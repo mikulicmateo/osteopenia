@@ -1,0 +1,1222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<annotations>
+  <version>1.1</version>
+  <meta>
+    <task>
+      <id>54</id>
+      <name>Fractures</name>
+      <size>235</size>
+      <mode>annotation</mode>
+      <overlap>0</overlap>
+      <bugtracker></bugtracker>
+      <created>2023-10-04 07:51:34.799124+00:00</created>
+      <updated>2023-10-17 14:22:10.218500+00:00</updated>
+      <subset>default</subset>
+      <start_frame>0</start_frame>
+      <stop_frame>234</stop_frame>
+      <frame_filter></frame_filter>
+      <segments>
+        <segment>
+          <id>87</id>
+          <start>0</start>
+          <stop>234</stop>
+          <url>http://vmi251990.contaboserver.net:8080/api/jobs/87</url>
+        </segment>
+      </segments>
+      <owner>
+        <username>fhrzic</username>
+        <email>fhrzic@riteh.hr</email>
+      </owner>
+      <assignee>
+        <username>fhrzic</username>
+        <email>fhrzic@riteh.hr</email>
+      </assignee>
+      <labels>
+        <label>
+          <name>Fracture</name>
+          <color>#24b353</color>
+          <type>rectangle</type>
+          <attributes>
+          </attributes>
+        </label>
+      </labels>
+    </task>
+    <dumped>2023-10-22 09:14:15.272632+00:00</dumped>
+  </meta>
+  <image id="0" name="patient_id_1009_image_23_1009_1074602453_12_WRI-L1_M014.png" width="612" height="1176">
+    <box label="Fracture" occluded="0" source="manual" xtl="125.66" ytl="520.53" xbr="229.28" ybr="614.16" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="291.70" ytl="572.96" xbr="442.76" ybr="679.08" z_order="0">
+    </box>
+  </image>
+  <image id="1" name="patient_id_1051_image_1_1051_0321027974_01_WRI-L1_F011.png" width="532" height="795">
+    <box label="Fracture" occluded="0" source="manual" xtl="112.81" ytl="475.12" xbr="203.11" ybr="527.44" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="247.00" ytl="478.49" xbr="394.69" ybr="550.23" z_order="0">
+    </box>
+  </image>
+  <image id="2" name="patient_id_1051_image_2_1051_0321028014_02_WRI-L2_F011.png" width="418" height="828">
+    <box label="Fracture" occluded="0" source="manual" xtl="115.98" ytl="478.99" xbr="217.94" ybr="672.37" z_order="0">
+    </box>
+  </image>
+  <image id="3" name="patient_id_1143_image_5_1143_0686105217_03_WRI-L1_M013.png" width="568" height="1121">
+    <box label="Fracture" occluded="0" source="manual" xtl="122.78" ytl="515.25" xbr="198.94" ybr="723.50" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="254.87" ytl="389.10" xbr="480.97" ybr="504.54" z_order="0">
+    </box>
+  </image>
+  <image id="4" name="patient_id_1143_image_6_1143_0686105258_03_WRI-L2_M013.png" width="554" height="1213">
+    <box label="Fracture" occluded="0" source="manual" xtl="290.49" ytl="440.37" xbr="347.14" ybr="508.62" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="129.53" ytl="530.51" xbr="215.80" ybr="694.05" z_order="0">
+    </box>
+  </image>
+  <image id="5" name="patient_id_1218_image_1_1218_0256565451_01_WRI-L1_M010.png" width="652" height="1042">
+    <box label="Fracture" occluded="0" source="manual" xtl="269.08" ytl="579.58" xbr="358.68" ybr="721.17" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="146.30" ytl="512.10" xbr="232.58" ybr="562.99" z_order="0">
+    </box>
+  </image>
+  <image id="6" name="patient_id_1218_image_2_1218_0256565468_01_WRI-L2_M010.png" width="543" height="912">
+    <box label="Fracture" occluded="0" source="manual" xtl="125.81" ytl="461.76" xbr="223.60" ybr="675.72" z_order="0">
+    </box>
+  </image>
+  <image id="7" name="patient_id_1235_image_1_1235_0625258952_01_WRI-R1_M011.png" width="552" height="950">
+    <box label="Fracture" occluded="0" source="manual" xtl="359.23" ytl="489.12" xbr="446.96" ybr="581.90" z_order="0">
+    </box>
+  </image>
+  <image id="8" name="patient_id_1235_image_2_1235_0625258990_01_WRI-R2_M011.png" width="501" height="1118">
+    <box label="Fracture" occluded="0" source="manual" xtl="239.18" ytl="610.07" xbr="346.00" ybr="716.88" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="332.94" ytl="430.86" xbr="385.16" ybr="492.57" z_order="0">
+    </box>
+  </image>
+  <image id="9" name="patient_id_1235_image_5_1235_0627606191_03_WRI-R1_M011.png" width="600" height="859">
+    <box label="Fracture" occluded="0" source="manual" xtl="384.39" ytl="618.29" xbr="489.26" ybr="702.19" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="190.16" ytl="608.26" xbr="336.06" ybr="677.56" z_order="0">
+    </box>
+  </image>
+  <image id="10" name="patient_id_1235_image_6_1235_0627606222_03_WRI-R2_M011.png" width="543" height="1272">
+    <box label="Fracture" occluded="0" source="manual" xtl="215.50" ytl="665.70" xbr="322.18" ybr="862.84" z_order="0">
+    </box>
+  </image>
+  <image id="11" name="patient_id_1314_image_5_1314_0979507577_03_WRI-R1_M014.png" width="665" height="1080">
+    <box label="Fracture" occluded="0" source="manual" xtl="210.41" ytl="518.24" xbr="428.24" ybr="650.09" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="427.09" ytl="678.75" xbr="525.69" ybr="779.64" z_order="0">
+    </box>
+  </image>
+  <image id="12" name="patient_id_1314_image_6_1314_0979507639_03_WRI-R2_M014.png" width="491" height="920">
+    <box label="Fracture" occluded="0" source="manual" xtl="228.39" ytl="527.44" xbr="347.54" ybr="667.10" z_order="0">
+    </box>
+  </image>
+  <image id="13" name="patient_id_145_image_1_0145_0320973152_01_WRI-L1_M017.png" width="594" height="1202">
+    <box label="Fracture" occluded="0" source="manual" xtl="80.78" ytl="436.40" xbr="156.06" ybr="502.75" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="231.35" ytl="675.01" xbr="378.09" ybr="787.30" z_order="0">
+    </box>
+  </image>
+  <image id="14" name="patient_id_145_image_2_0145_0320973195_01_WRI-L2_M017.png" width="450" height="998">
+    <box label="Fracture" occluded="0" source="manual" xtl="66.60" ytl="478.83" xbr="235.05" ybr="781.83" z_order="0">
+    </box>
+  </image>
+  <image id="15" name="patient_id_1474_image_11_1474_0337022330_06_WRI-R1_M015.png" width="670" height="1331">
+    <box label="Fracture" occluded="0" source="manual" xtl="465.67" ytl="746.00" xbr="564.58" ybr="876.00" z_order="0">
+    </box>
+  </image>
+  <image id="16" name="patient_id_1474_image_12_1474_0337022365_06_WRI-R2_M015.png" width="468" height="1232">
+    <box label="Fracture" occluded="0" source="manual" xtl="225.44" ytl="613.35" xbr="365.38" ybr="795.14" z_order="0">
+    </box>
+  </image>
+  <image id="17" name="patient_id_1508_image_5_1508_0828567722_03_WRI-R1_M015.png" width="698" height="1191">
+    <box label="Fracture" occluded="0" source="manual" xtl="500.11" ytl="524.64" xbr="583.56" ybr="592.91" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="436.89" ytl="667.51" xbr="564.59" ybr="764.86" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="190.35" ytl="661.19" xbr="405.28" ybr="802.79" z_order="0">
+    </box>
+  </image>
+  <image id="18" name="patient_id_1508_image_6_1508_0828567753_03_WRI-R2_M015.png" width="496" height="1179">
+    <box label="Fracture" occluded="0" source="manual" xtl="201.12" ytl="478.10" xbr="363.83" ybr="598.25" z_order="0">
+    </box>
+  </image>
+  <image id="19" name="patient_id_1584_image_5_1584_0894754082_03_WRI-R1_M015.png" width="518" height="922">
+    <box label="Fracture" occluded="0" source="manual" xtl="312.33" ytl="621.52" xbr="435.65" ybr="703.74" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="91.13" ytl="587.26" xbr="283.94" ybr="698.84" z_order="0">
+    </box>
+  </image>
+  <image id="20" name="patient_id_1584_image_6_1584_0894754147_03_WRI-R2_M015.png" width="474" height="1066">
+    <box label="Fracture" occluded="0" source="manual" xtl="203.63" ytl="560.21" xbr="341.69" ybr="769.56" z_order="0">
+    </box>
+  </image>
+  <image id="21" name="patient_id_1587_image_1_1587_1201781774_01_WRI-R1_F004.png" width="488" height="774">
+    <box label="Fracture" occluded="0" source="manual" xtl="156.51" ytl="382.06" xbr="266.62" ybr="446.15" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="315.92" ytl="435.47" xbr="384.11" ybr="498.73" z_order="0">
+    </box>
+  </image>
+  <image id="22" name="patient_id_1587_image_2_1587_1201781802_01_WRI-R2_F004.png" width="433" height="716">
+    <box label="Fracture" occluded="0" source="manual" xtl="175.04" ytl="315.43" xbr="304.25" ybr="385.35" z_order="0">
+    </box>
+  </image>
+  <image id="23" name="patient_id_1600_image_10_1600_0301554329_05_WRI-R2_M014.png" width="376" height="944">
+    <box label="Fracture" occluded="0" source="manual" xtl="148.39" ytl="432.89" xbr="302.71" ybr="633.31" z_order="0">
+    </box>
+  </image>
+  <image id="24" name="patient_id_1600_image_9_1600_0301554297_05_WRI-R1_M014.png" width="536" height="962">
+    <box label="Fracture" occluded="0" source="manual" xtl="102.08" ytl="431.94" xbr="288.97" ybr="509.55" z_order="0">
+    </box>
+  </image>
+  <image id="25" name="patient_id_1707_image_7_1707_0517225767_03_WRI-R1_M009.png" width="562" height="1306">
+    <box label="Fracture" occluded="0" source="manual" xtl="150.08" ytl="488.36" xbr="308.13" ybr="692.16" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="342.65" ytl="490.86" xbr="448.02" ybr="671.09" z_order="0">
+    </box>
+  </image>
+  <image id="26" name="patient_id_1707_image_8_1707_0517225802_03_WRI-R2_M009.png" width="502" height="1210">
+    <box label="Fracture" occluded="0" source="manual" xtl="190.03" ytl="357.15" xbr="373.72" ybr="715.52" z_order="0">
+    </box>
+  </image>
+  <image id="27" name="patient_id_1780_image_2_1780_0475204142_01_WRI-R2_M015.png" width="692" height="1360">
+    <box label="Fracture" occluded="0" source="manual" xtl="198.06" ytl="399.89" xbr="446.38" ybr="705.97" z_order="0">
+    </box>
+  </image>
+  <image id="28" name="patient_id_1780_image_6_1780_0478651823_03_WRI-R2_M015.png" width="543" height="944">
+    <box label="Fracture" occluded="0" source="manual" xtl="194.88" ytl="394.81" xbr="454.43" ybr="656.36" z_order="0">
+    </box>
+  </image>
+  <image id="29" name="patient_id_1780_image_8_1780_0505344147_04_WRI-R2_M016.png" width="650" height="918">
+    <box label="Fracture" occluded="0" source="manual" xtl="245.58" ytl="508.70" xbr="502.85" ybr="657.80" z_order="0">
+    </box>
+  </image>
+  <image id="30" name="patient_id_1816_image_5_1816_0484981015_03_WRI-R1_F010.png" width="564" height="932">
+    <box label="Fracture" occluded="0" source="manual" xtl="146.99" ytl="541.16" xbr="322.11" ybr="612.40" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="344.87" ytl="549.07" xbr="442.81" ybr="612.40" z_order="0">
+    </box>
+  </image>
+  <image id="31" name="patient_id_1816_image_6_1816_0484981062_03_WRI-R2_F010.png" width="454" height="852">
+    <box label="Fracture" occluded="0" source="manual" xtl="190.36" ytl="464.86" xbr="333.26" ybr="648.46" z_order="0">
+    </box>
+  </image>
+  <image id="32" name="patient_id_1826_image_10_1826_0536648580_05_WRI-L2_F013.png" width="467" height="1290">
+    <box label="Fracture" occluded="0" source="manual" xtl="73.91" ytl="676.46" xbr="265.63" ybr="760.00" z_order="0">
+    </box>
+  </image>
+  <image id="33" name="patient_id_1826_image_7_1826_0455184814_04_WRI-L1_F010.png" width="605" height="1142">
+    <box label="Fracture" occluded="0" source="manual" xtl="152.05" ytl="603.03" xbr="249.03" ybr="696.38" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="287.34" ytl="597.69" xbr="418.27" ybr="784.39" z_order="0">
+    </box>
+  </image>
+  <image id="34" name="patient_id_1826_image_8_1826_0455184852_04_WRI-L2_F010.png" width="514" height="1354">
+    <box label="Fracture" occluded="0" source="manual" xtl="175.77" ytl="733.04" xbr="326.69" ybr="812.09" z_order="0">
+    </box>
+  </image>
+  <image id="35" name="patient_id_1826_image_9_1826_0536648527_05_WRI-L1_F013.png" width="546" height="1148">
+    <box label="Fracture" occluded="0" source="manual" xtl="102.45" ytl="663.05" xbr="223.10" ybr="723.98" z_order="0">
+    </box>
+  </image>
+  <image id="36" name="patient_id_1914_image_1_1914_1084341015_01_WRI-L1_F010.png" width="540" height="852">
+    <box label="Fracture" occluded="0" source="manual" xtl="168.29" ytl="411.50" xbr="331.99" ybr="481.14" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="66.99" ytl="426.87" xbr="161.96" ybr="487.47" z_order="0">
+    </box>
+  </image>
+  <image id="37" name="patient_id_1941_image_1_1941_0727551755_01_WRI-L1_F010.png" width="451" height="772">
+    <box label="Fracture" occluded="0" source="manual" xtl="184.96" ytl="445.82" xbr="334.11" ybr="515.48" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="53.01" ytl="441.72" xbr="167.75" ybr="510.56" z_order="0">
+    </box>
+  </image>
+  <image id="38" name="patient_id_1941_image_2_1941_0727551802_01_WRI-L2_F010.png" width="390" height="922">
+    <box label="Fracture" occluded="0" source="manual" xtl="109.33" ytl="553.01" xbr="199.38" ybr="690.04" z_order="0">
+    </box>
+  </image>
+  <image id="39" name="patient_id_1941_image_3_1941_0728120317_02_WRI-L1_F010.png" width="546" height="929">
+    <box label="Fracture" occluded="0" source="manual" xtl="142.52" ytl="522.20" xbr="222.40" ybr="589.27" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="248.83" ytl="468.46" xbr="414.51" ybr="521.71" z_order="0">
+    </box>
+  </image>
+  <image id="40" name="patient_id_1941_image_4_1941_0728120380_02_WRI-L2_F010.png" width="512" height="961">
+    <box label="Fracture" occluded="0" source="manual" xtl="133.08" ytl="492.79" xbr="268.76" ybr="650.92" z_order="0">
+    </box>
+  </image>
+  <image id="41" name="patient_id_2011_image_10_2011_0827274381_05_WRI-L2_F013.png" width="501" height="1154">
+    <box label="Fracture" occluded="0" source="manual" xtl="177.63" ytl="498.60" xbr="294.01" ybr="739.93" z_order="0">
+    </box>
+  </image>
+  <image id="42" name="patient_id_2011_image_9_2011_0827274334_05_WRI-L1_F013.png" width="541" height="832">
+    <box label="Fracture" occluded="0" source="manual" xtl="260.32" ytl="488.46" xbr="435.20" ybr="577.67" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="137.55" ytl="568.83" xbr="232.94" ybr="613.88" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="119.89" ytl="344.49" xbr="177.30" ybr="408.09" z_order="0">
+    </box>
+  </image>
+  <image id="43" name="patient_id_2056_image_5_2056_0500187226_03_WRI-R1_M009.png" width="592" height="1022">
+    <box label="Fracture" occluded="0" source="manual" xtl="424.52" ytl="514.24" xbr="502.63" ybr="590.19" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="211.87" ytl="513.16" xbr="401.74" ybr="605.38" z_order="0">
+    </box>
+  </image>
+  <image id="44" name="patient_id_2063_image_10_2063_1152963992_05_WRI-R2_M014.png" width="520" height="1332">
+    <box label="Fracture" occluded="0" source="manual" xtl="260.71" ytl="705.56" xbr="402.11" ybr="914.84" z_order="0">
+    </box>
+  </image>
+  <image id="45" name="patient_id_2063_image_2_2063_1149355443_01_WRI-R2_M014.png" width="470" height="702">
+    <box label="Fracture" occluded="0" source="manual" xtl="168.33" ytl="426.99" xbr="342.71" ybr="488.10" z_order="0">
+    </box>
+  </image>
+  <image id="46" name="patient_id_2184_image_7_2184_1259173815_04_WRI-L1_M012.png" width="504" height="824">
+    <box label="Fracture" occluded="0" source="manual" xtl="122.08" ytl="491.57" xbr="215.70" ybr="612.30" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="255.92" ytl="481.07" xbr="424.74" ybr="628.03" z_order="0">
+    </box>
+  </image>
+  <image id="47" name="patient_id_2184_image_8_2184_1259173842_04_WRI-L2_M012.png" width="403" height="912">
+    <box label="Fracture" occluded="0" source="manual" xtl="103.25" ytl="546.96" xbr="272.68" ybr="656.36" z_order="0">
+    </box>
+  </image>
+  <image id="48" name="patient_id_2188_image_1_2188_0958472734_01_WRI-L1_M013.png" width="544" height="1500">
+    <box label="Fracture" occluded="0" source="manual" xtl="56.31" ytl="624.14" xbr="185.29" ybr="716.50" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="229.87" ytl="597.07" xbr="422.55" ybr="751.53" z_order="0">
+    </box>
+  </image>
+  <image id="49" name="patient_id_2333_image_10_2333_1073917097_05_WRI-L2_F015.png" width="701" height="1408">
+    <box label="Fracture" occluded="0" source="manual" xtl="351.31" ytl="843.06" xbr="448.46" ybr="1001.50" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="237.71" ytl="394.65" xbr="387.18" ybr="632.31" z_order="0">
+    </box>
+  </image>
+  <image id="50" name="patient_id_2333_image_2_2333_1071502712_01_WRI-L2_F015.png" width="694" height="1105">
+    <box label="Fracture" occluded="0" source="manual" xtl="217.37" ytl="439.89" xbr="334.67" ybr="723.77" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="326.46" ytl="733.15" xbr="405.06" ybr="797.67" z_order="0">
+    </box>
+  </image>
+  <image id="51" name="patient_id_2333_image_4_2333_1072467739_02_WRI-L2_F015.png" width="633" height="1322">
+    <box label="Fracture" occluded="0" source="manual" xtl="228.36" ytl="607.28" xbr="363.09" ybr="904.80" z_order="0">
+    </box>
+  </image>
+  <image id="52" name="patient_id_2333_image_6_2333_1073301947_03_WRI-L2_F015.png" width="637" height="1144">
+    <box label="Fracture" occluded="0" source="manual" xtl="190.35" ytl="504.04" xbr="292.36" ybr="776.07" z_order="0">
+    </box>
+  </image>
+  <image id="53" name="patient_id_2333_image_8_2333_1073913167_04_WRI-L2_F015.png" width="471" height="922">
+    <box label="Fracture" occluded="0" source="manual" xtl="84.28" ytl="311.25" xbr="230.11" ybr="635.22" z_order="0">
+    </box>
+  </image>
+  <image id="54" name="patient_id_2354_image_1_2354_0418151723_01_WRI-R1_F010.png" width="630" height="1133">
+    <box label="Fracture" occluded="0" source="manual" xtl="185.72" ytl="535.24" xbr="351.70" ybr="637.48" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="378.16" ytl="517.20" xbr="524.90" ybr="647.10" z_order="0">
+    </box>
+  </image>
+  <image id="55" name="patient_id_2354_image_2_2354_0418151780_01_WRI-R2_F010.png" width="584" height="1204">
+    <box label="Fracture" occluded="0" source="manual" xtl="219.80" ytl="520.16" xbr="342.50" ybr="741.28" z_order="0">
+    </box>
+  </image>
+  <image id="56" name="patient_id_2354_image_3_2354_0418985015_02_WRI-R1_F010.png" width="666" height="1041">
+    <box label="Fracture" occluded="0" source="manual" xtl="387.67" ytl="555.86" xbr="502.60" ybr="644.27" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="184.33" ytl="550.34" xbr="358.94" ybr="663.06" z_order="0">
+    </box>
+  </image>
+  <image id="57" name="patient_id_2354_image_4_2354_0418985056_02_WRI-R2_F010.png" width="524" height="1054">
+    <box label="Fracture" occluded="0" source="manual" xtl="240.23" ytl="496.79" xbr="382.33" ybr="697.08" z_order="0">
+    </box>
+  </image>
+  <image id="58" name="patient_id_2354_image_5_2354_0434150082_03_WRI-R1_F011.png" width="536" height="1050">
+    <box label="Fracture" occluded="0" source="manual" xtl="148.12" ytl="422.44" xbr="313.09" ybr="500.46" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="333.15" ytl="389.00" xbr="484.75" ybr="548.39" z_order="0">
+    </box>
+  </image>
+  <image id="59" name="patient_id_2354_image_6_2354_0434150117_03_WRI-R2_F011.png" width="427" height="976">
+    <box label="Fracture" occluded="0" source="manual" xtl="169.42" ytl="413.42" xbr="325.87" ybr="587.48" z_order="0">
+    </box>
+  </image>
+  <image id="60" name="patient_id_2354_image_7_2354_0470174087_04_WRI-R2_F012.png" width="413" height="666">
+    <box label="Fracture" occluded="0" source="manual" xtl="163.71" ytl="446.80" xbr="331.98" ybr="618.60" z_order="0">
+    </box>
+  </image>
+  <image id="61" name="patient_id_2371_image_1_2371_0577890878_01_WRI-R1_F011.png" width="565" height="760">
+    <box label="Fracture" occluded="0" source="manual" xtl="149.82" ytl="473.59" xbr="349.91" ybr="572.82" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="378.14" ytl="562.34" xbr="470.93" ybr="649.47" z_order="0">
+    </box>
+  </image>
+  <image id="62" name="patient_id_2371_image_2_2371_0577890918_01_WRI-R2_F011.png" width="509" height="972">
+    <box label="Fracture" occluded="0" source="manual" xtl="232.34" ytl="476.68" xbr="380.93" ybr="727.42" z_order="0">
+    </box>
+  </image>
+  <image id="63" name="patient_id_2413_image_1_2413_0961169055_01_WRI-R1_M009.png" width="512" height="1040">
+    <box label="Fracture" occluded="0" source="manual" xtl="176.00" ytl="560.86" xbr="283.09" ybr="665.74" z_order="0">
+    </box>
+  </image>
+  <image id="64" name="patient_id_2413_image_2_2413_0961169071_01_WRI-R2_M009.png" width="512" height="1038">
+    <box label="Fracture" occluded="0" source="manual" xtl="269.80" ytl="499.20" xbr="363.40" ybr="674.40" z_order="0">
+    </box>
+  </image>
+  <image id="65" name="patient_id_2413_image_7_2413_1136132011_04_WRI-R1_M015.png" width="909" height="1278">
+    <box label="Fracture" occluded="0" source="manual" xtl="371.70" ytl="743.43" xbr="553.50" ybr="845.18" z_order="0">
+    </box>
+  </image>
+  <image id="66" name="patient_id_2413_image_8_2413_1136132046_04_WRI-R2_M015.png" width="573" height="1124">
+    <box label="Fracture" occluded="0" source="manual" xtl="256.38" ytl="617.92" xbr="452.07" ybr="817.19" z_order="0">
+    </box>
+  </image>
+  <image id="67" name="patient_id_2429_image_1_2429_0839384360_01_WRI-L1_M009.png" width="576" height="932">
+    <box label="Fracture" occluded="0" source="manual" xtl="202.39" ytl="455.08" xbr="375.54" ybr="595.58" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="82.68" ytl="486.74" xbr="173.70" ybr="563.92" z_order="0">
+    </box>
+  </image>
+  <image id="68" name="patient_id_2429_image_9_2429_0862390927_05_WRI-L1_M010.png" width="785" height="892">
+    <box label="Fracture" occluded="0" source="manual" xtl="158.16" ytl="580.49" xbr="269.90" ybr="643.93" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="301.15" ytl="562.50" xbr="485.80" ybr="675.18" z_order="0">
+    </box>
+  </image>
+  <image id="69" name="patient_id_2443_image_13_2443_0984676840_08_WRI-L1_M014.png" width="912" height="1212">
+    <box label="Fracture" occluded="0" source="manual" xtl="379.50" ytl="944.33" xbr="585.36" ybr="1057.55" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="241.83" ytl="962.34" xbr="364.06" ybr="1058.84" z_order="0">
+    </box>
+  </image>
+  <image id="70" name="patient_id_2443_image_14_2443_0984676891_08_WRI-L2_M014.png" width="593" height="834">
+    <box label="Fracture" occluded="0" source="manual" xtl="211.10" ytl="462.19" xbr="354.53" ybr="663.16" z_order="0">
+    </box>
+  </image>
+  <image id="71" name="patient_id_2443_image_1_2443_0960661390_01_WRI-R1_M014.png" width="589" height="904">
+    <box label="Fracture" occluded="0" source="manual" xtl="362.20" ytl="549.91" xbr="475.44" ybr="654.51" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="150.11" ytl="564.30" xbr="325.73" ybr="664.11" z_order="0">
+    </box>
+  </image>
+  <image id="72" name="patient_id_2443_image_2_2443_0960661430_01_WRI-R2_M014.png" width="474" height="994">
+    <box label="Fracture" occluded="0" source="manual" xtl="160.54" ytl="479.10" xbr="337.81" ybr="656.38" z_order="0">
+    </box>
+  </image>
+  <image id="73" name="patient_id_2452_image_7_2452_0350945790_05_WRI-R1_F010.png" width="521" height="1070">
+    <box label="Fracture" occluded="0" source="manual" xtl="321.23" ytl="429.36" xbr="414.37" ybr="547.49" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="138.35" ytl="442.99" xbr="292.83" ybr="527.05" z_order="0">
+    </box>
+  </image>
+  <image id="74" name="patient_id_2452_image_8_2452_0350945825_05_WRI-R2_F010.png" width="467" height="1042">
+    <box label="Fracture" occluded="0" source="manual" xtl="173.18" ytl="369.41" xbr="293.75" ybr="612.76" z_order="0">
+    </box>
+  </image>
+  <image id="75" name="patient_id_2514_image_1_2514_1019851891_01_WRI-L1_F014.png" width="583" height="742">
+    <box label="Fracture" occluded="0" source="manual" xtl="137.54" ytl="451.36" xbr="254.91" ybr="511.22" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="269.87" ytl="442.69" xbr="455.77" ybr="515.95" z_order="0">
+    </box>
+  </image>
+  <image id="76" name="patient_id_2514_image_2_2514_1019851965_01_WRI-L2_F014.png" width="495" height="778">
+    <box label="Fracture" occluded="0" source="manual" xtl="187.64" ytl="365.87" xbr="308.22" ybr="473.24" z_order="0">
+    </box>
+  </image>
+  <image id="77" name="patient_id_2514_image_3_2514_1021054535_02_WRI-L1_F014.png" width="651" height="954">
+    <box label="Fracture" occluded="0" source="manual" xtl="314.88" ytl="539.81" xbr="486.04" ybr="632.98" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="183.23" ytl="555.00" xbr="283.49" ybr="621.84" z_order="0">
+    </box>
+  </image>
+  <image id="78" name="patient_id_2514_image_4_2514_1021054658_02_WRI-L2_F014.png" width="443" height="1064">
+    <box label="Fracture" occluded="0" source="manual" xtl="152.00" ytl="626.85" xbr="283.02" ybr="719.47" z_order="0">
+    </box>
+  </image>
+  <image id="79" name="patient_id_261_image_5_0261_0838332046_04_WRI-R1_M014.png" width="651" height="1040">
+    <box label="Fracture" occluded="0" source="manual" xtl="192.45" ytl="609.44" xbr="384.55" ybr="688.93" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="423.19" ytl="616.06" xbr="539.11" ybr="733.09" z_order="0">
+    </box>
+  </image>
+  <image id="80" name="patient_id_2662_image_10_2662_0508777696_05_WRI-R2_M015.png" width="649" height="1162">
+    <box label="Fracture" occluded="0" source="manual" xtl="275.76" ytl="578.48" xbr="478.06" ybr="769.68" z_order="0">
+    </box>
+  </image>
+  <image id="81" name="patient_id_2662_image_9_2662_0508777625_05_WRI-R1_M015.png" width="837" height="1200">
+    <box label="Fracture" occluded="0" source="manual" xtl="295.60" ytl="649.74" xbr="518.53" ybr="726.18" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="564.39" ytl="707.07" xbr="685.41" ybr="826.81" z_order="0">
+    </box>
+  </image>
+  <image id="82" name="patient_id_2813_image_11_2813_1070225473_06_WRI-L1_F009.png" width="536" height="922">
+    <box label="Fracture" occluded="0" source="manual" xtl="119.71" ytl="511.90" xbr="182.35" ybr="579.43" z_order="0">
+    </box>
+  </image>
+  <image id="83" name="patient_id_2837_image_1_2837_0284804214_01_WRI-R1_M011.png" width="589" height="1196">
+    <box label="Fracture" occluded="0" source="manual" xtl="354.83" ytl="590.35" xbr="462.75" ybr="685.57" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="164.39" ytl="622.09" xbr="310.39" ybr="766.83" z_order="0">
+    </box>
+  </image>
+  <image id="84" name="patient_id_2837_image_2_2837_0284804245_01_WRI-R2_M011.png" width="506" height="1262">
+    <box label="Fracture" occluded="0" source="manual" xtl="217.02" ytl="645.73" xbr="352.33" ybr="819.89" z_order="0">
+    </box>
+  </image>
+  <image id="85" name="patient_id_2885_image_1_2885_0971475536_01_WRI-R1_M017.png" width="695" height="1020">
+    <box label="Fracture" occluded="0" source="manual" xtl="402.20" ytl="687.63" xbr="514.82" ybr="776.42" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="173.73" ytl="719.03" xbr="367.55" ybr="784.00" z_order="0">
+    </box>
+  </image>
+  <image id="86" name="patient_id_2885_image_2_2885_0971475837_01_WRI-R2_M017.png" width="492" height="1044">
+    <box label="Fracture" occluded="0" source="manual" xtl="211.09" ytl="590.67" xbr="333.00" ybr="763.56" z_order="0">
+    </box>
+  </image>
+  <image id="87" name="patient_id_2920_image_11_2920_1053821977_06_WRI-L1_M013.png" width="710" height="1346">
+    <box label="Fracture" occluded="0" source="manual" xtl="182.78" ytl="648.74" xbr="277.09" ybr="727.33" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="325.67" ytl="591.58" xbr="505.71" ybr="745.90" z_order="0">
+    </box>
+  </image>
+  <image id="88" name="patient_id_2920_image_12_2920_1053822000_07_WRI-L2_M013.png" width="530" height="1348">
+    <box label="Fracture" occluded="0" source="manual" xtl="182.78" ytl="596.77" xbr="307.28" ybr="818.57" z_order="0">
+    </box>
+  </image>
+  <image id="89" name="patient_id_2920_image_1_2920_0927579805_01_WRI-L1_M009.png" width="456" height="889">
+    <box label="Fracture" occluded="0" source="manual" xtl="96.33" ytl="569.99" xbr="170.89" ybr="621.90" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="204.86" ytl="550.18" xbr="358.69" ybr="639.83" z_order="0">
+    </box>
+  </image>
+  <image id="90" name="patient_id_2920_image_2_2920_0927579900_01_WRI-L2_M009.png" width="456" height="1125">
+    <box label="Fracture" occluded="0" source="manual" xtl="131.86" ytl="648.50" xbr="239.35" ybr="810.92" z_order="0">
+    </box>
+  </image>
+  <image id="91" name="patient_id_2946_image_10_2946_0641483640_06_WRI-L2_M016.png" width="1313" height="1313">
+    <box label="Fracture" occluded="0" source="manual" xtl="524.82" ytl="560.36" xbr="653.05" ybr="819.62" z_order="0">
+    </box>
+  </image>
+  <image id="92" name="patient_id_3009_image_5_3009_0366949179_03_WRI-R1_M011.png" width="629" height="932">
+    <box label="Fracture" occluded="0" source="manual" xtl="185.38" ytl="464.98" xbr="333.78" ybr="546.11" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="362.48" ytl="444.20" xbr="475.27" ybr="551.05" z_order="0">
+    </box>
+  </image>
+  <image id="93" name="patient_id_3009_image_6_3009_0366949216_03_WRI-R2_M011.png" width="435" height="862">
+    <box label="Fracture" occluded="0" source="manual" xtl="178.65" ytl="377.03" xbr="279.30" ybr="493.25" z_order="0">
+    </box>
+  </image>
+  <image id="94" name="patient_id_3070_image_2_3070_0408820202_01_WRI-L2_F012.png" width="396" height="880">
+    <box label="Fracture" occluded="0" source="manual" xtl="95.71" ytl="484.80" xbr="226.50" ybr="588.50" z_order="0">
+    </box>
+  </image>
+  <image id="95" name="patient_id_3136_image_1_3136_0339818046_01_WRI-R1_F012.png" width="566" height="882">
+    <box label="Fracture" occluded="0" source="manual" xtl="151.41" ytl="481.27" xbr="308.71" ybr="555.23" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="341.48" ytl="465.35" xbr="449.15" ybr="585.20" z_order="0">
+    </box>
+  </image>
+  <image id="96" name="patient_id_3136_image_2_3136_0339818081_01_WRI-R2_F012.png" width="577" height="994">
+    <box label="Fracture" occluded="0" source="manual" xtl="278.51" ytl="429.51" xbr="407.24" ybr="659.54" z_order="0">
+    </box>
+  </image>
+  <image id="97" name="patient_id_3138_image_7_3138_0199451604_04_WRI-L1_M015.png" width="617" height="1218">
+    <box label="Fracture" occluded="0" source="manual" xtl="147.53" ytl="620.63" xbr="249.68" ybr="694.34" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="282.00" ytl="579.26" xbr="481.12" ybr="738.30" z_order="0">
+    </box>
+  </image>
+  <image id="98" name="patient_id_313_image_17_0313_0954826752_08_WRI-L1_F015.png" width="602" height="972">
+    <box label="Fracture" occluded="0" source="manual" xtl="103.36" ytl="730.52" xbr="215.83" ybr="801.71" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="238.53" ytl="775.92" xbr="389.18" ybr="866.72" z_order="0">
+    </box>
+  </image>
+  <image id="99" name="patient_id_313_image_18_0313_0954826801_08_WRI-L2_F015.png" width="536" height="960">
+    <box label="Fracture" occluded="0" source="manual" xtl="120.45" ytl="675.86" xbr="258.03" ybr="810.38" z_order="0">
+    </box>
+  </image>
+  <image id="100" name="patient_id_3152_image_10_3152_0894767160_05_WRI-L1_F013.png" width="543" height="910">
+    <box label="Fracture" occluded="0" source="manual" xtl="232.33" ytl="531.31" xbr="355.98" ybr="664.63" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="116.41" ytl="565.13" xbr="187.89" ybr="634.68" z_order="0">
+    </box>
+  </image>
+  <image id="101" name="patient_id_3152_image_1_3152_0816786797_01_WRI-R1_F011.png" width="505" height="936">
+    <box label="Fracture" occluded="0" source="manual" xtl="156.68" ytl="409.06" xbr="274.92" ybr="598.84" z_order="0">
+    </box>
+  </image>
+  <image id="102" name="patient_id_3152_image_2_3152_0816786812_01_WRI-R2_F011.png" width="537" height="836">
+    <box label="Fracture" occluded="0" source="manual" xtl="252.99" ytl="300.83" xbr="343.52" ybr="434.84" z_order="0">
+    </box>
+  </image>
+  <image id="103" name="patient_id_3184_image_1_3184_0965838421_01_WRI-R1_M018.png" width="634" height="853">
+    <box label="Fracture" occluded="0" source="manual" xtl="157.20" ytl="532.46" xbr="370.01" ybr="635.69" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="384.50" ytl="513.45" xbr="502.22" ybr="665.57" z_order="0">
+    </box>
+  </image>
+  <image id="104" name="patient_id_3184_image_2_3184_0965838468_01_WRI-R2_M018.png" width="496" height="818">
+    <box label="Fracture" occluded="0" source="manual" xtl="256.33" ytl="492.53" xbr="385.72" ybr="659.25" z_order="0">
+    </box>
+  </image>
+  <image id="105" name="patient_id_3184_image_3_3184_0972489056_02_WRI-R1_M018.png" width="587" height="946">
+    <box label="Fracture" occluded="0" source="manual" xtl="372.34" ytl="526.19" xbr="518.96" ybr="700.93" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="137.54" ytl="546.27" xbr="339.40" ybr="661.76" z_order="0">
+    </box>
+  </image>
+  <image id="106" name="patient_id_3184_image_4_3184_0972489124_02_WRI-R2_M018.png" width="387" height="1044">
+    <box label="Fracture" occluded="0" source="manual" xtl="179.61" ytl="631.68" xbr="320.36" ybr="838.93" z_order="0">
+    </box>
+  </image>
+  <image id="107" name="patient_id_3184_image_5_3184_0974992744_03_WRI-R1_M018.png" width="559" height="1138">
+    <box label="Fracture" occluded="0" source="manual" xtl="361.06" ytl="590.72" xbr="480.66" ybr="786.42" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="127.90" ytl="619.71" xbr="330.86" ybr="739.31" z_order="0">
+    </box>
+  </image>
+  <image id="108" name="patient_id_3184_image_6_3184_0974992778_03_WRI-R2_M018.png" width="433" height="1256">
+    <box label="Fracture" occluded="0" source="manual" xtl="203.87" ytl="638.67" xbr="337.20" ybr="878.67" z_order="0">
+    </box>
+  </image>
+  <image id="109" name="patient_id_3188_image_1_3188_0599019918_01_WRI-R1_F011.png" width="599" height="884">
+    <box label="Fracture" occluded="0" source="manual" xtl="213.62" ytl="538.69" xbr="363.76" ybr="625.96" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="393.79" ytl="518.04" xbr="490.45" ybr="669.13" z_order="0">
+    </box>
+  </image>
+  <image id="110" name="patient_id_3188_image_2_3188_0599019942_01_WRI-R2_F011.png" width="460" height="886">
+    <box label="Fracture" occluded="0" source="manual" xtl="223.88" ytl="464.67" xbr="315.12" ybr="595.40" z_order="0">
+    </box>
+  </image>
+  <image id="111" name="patient_id_3204_image_1_3204_0932592194_01_WRI-R1_F016.png" width="504" height="1046">
+    <box label="Fracture" occluded="0" source="manual" xtl="124.85" ytl="616.32" xbr="263.65" ybr="708.48" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="296.96" ytl="590.78" xbr="406.89" ybr="793.98" z_order="0">
+    </box>
+  </image>
+  <image id="112" name="patient_id_3204_image_3_3204_0934391808_02_WRI-R1_F016.png" width="495" height="1052">
+    <box label="Fracture" occluded="0" source="manual" xtl="125.26" ytl="589.61" xbr="251.45" ybr="666.67" z_order="0">
+    </box>
+  </image>
+  <image id="113" name="patient_id_3300_image_1_3300_0736575049_01_WRI-L1_M012.png" width="612" height="1222">
+    <box label="Fracture" occluded="0" source="manual" xtl="239.04" ytl="660.64" xbr="384.33" ybr="787.77" z_order="0">
+    </box>
+  </image>
+  <image id="114" name="patient_id_3300_image_2_3300_0736575086_01_WRI-L2_M012.png" width="486" height="1064">
+    <box label="Fracture" occluded="0" source="manual" xtl="170.64" ytl="638.25" xbr="272.29" ybr="748.95" z_order="0">
+    </box>
+  </image>
+  <image id="115" name="patient_id_3379_image_7_3379_0433082599_05_WRI-R1_M012.png" width="626" height="948">
+    <box label="Fracture" occluded="0" source="manual" xtl="412.08" ytl="553.47" xbr="497.62" ybr="616.88" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="211.81" ytl="572.60" xbr="361.76" ybr="689.33" z_order="0">
+    </box>
+  </image>
+  <image id="116" name="patient_id_342_image_1_0342_0364797028_01_WRI-L1_M007.png" width="474" height="730">
+    <box label="Fracture" occluded="0" source="manual" xtl="101.79" ytl="362.71" xbr="177.70" ybr="406.90" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="246.70" ytl="460.35" xbr="335.82" ybr="532.42" z_order="0">
+    </box>
+  </image>
+  <image id="117" name="patient_id_344_image_1_0344_0975351782_01_WRI-L1_F012.png" width="772" height="1106">
+    <box label="Fracture" occluded="0" source="manual" xtl="357.25" ytl="686.82" xbr="536.89" ybr="796.01" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="226.92" ytl="718.52" xbr="332.59" ybr="777.22" z_order="0">
+    </box>
+  </image>
+  <image id="118" name="patient_id_344_image_2_0344_0975351811_01_WRI-L2_F012.png" width="461" height="1052">
+    <box label="Fracture" occluded="0" source="manual" xtl="140.56" ytl="597.43" xbr="236.60" ybr="751.55" z_order="0">
+    </box>
+  </image>
+  <image id="119" name="patient_id_3511_image_11_3511_1166727646_06_WRI-L1_M015.png" width="662" height="1162">
+    <box label="Fracture" occluded="0" source="manual" xtl="144.14" ytl="450.19" xbr="244.06" ybr="511.86" z_order="0">
+    </box>
+  </image>
+  <image id="120" name="patient_id_3511_image_12_3511_1166727668_06_WRI-L2_M015.png" width="543" height="1266">
+    <box label="Fracture" occluded="0" source="manual" xtl="216.29" ytl="517.34" xbr="356.06" ybr="709.52" z_order="0">
+    </box>
+  </image>
+  <image id="121" name="patient_id_3511_image_1_3511_1024586063_01_WRI-L1_M010.png" width="503" height="860">
+    <box label="Fracture" occluded="0" source="manual" xtl="196.25" ytl="421.75" xbr="323.15" ybr="535.86" z_order="0">
+    </box>
+  </image>
+  <image id="122" name="patient_id_3511_image_9_3511_1138483640_05_WRI-R1_M014.png" width="580" height="940">
+    <box label="Fracture" occluded="0" source="manual" xtl="322.46" ytl="424.14" xbr="450.19" ybr="628.71" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="124.88" ytl="451.09" xbr="299.51" ybr="516.95" z_order="0">
+    </box>
+  </image>
+  <image id="123" name="patient_id_3560_image_7_3560_0758946056_04_WRI-L1_M013.png" width="606" height="1069">
+    <box label="Fracture" occluded="0" source="manual" xtl="176.42" ytl="641.12" xbr="303.52" ybr="706.94" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="317.13" ytl="604.81" xbr="497.57" ybr="771.63" z_order="0">
+    </box>
+  </image>
+  <image id="124" name="patient_id_3560_image_8_3560_0758946097_04_WRI-L2_M013.png" width="438" height="1069">
+    <box label="Fracture" occluded="0" source="manual" xtl="159.39" ytl="582.11" xbr="263.80" ybr="702.40" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="234.29" ytl="730.77" xbr="294.44" ybr="863.55" z_order="0">
+    </box>
+  </image>
+  <image id="125" name="patient_id_3560_image_9_3560_0818872802_05_WRI-R2_M015.png" width="474" height="1202">
+    <box label="Fracture" occluded="0" source="manual" xtl="196.77" ytl="660.98" xbr="367.75" ybr="866.41" z_order="0">
+    </box>
+  </image>
+  <image id="126" name="patient_id_3690_image_10_3690_0752011979_07_WRI-R1_F005.png" width="551" height="886">
+    <box label="Fracture" occluded="0" source="manual" xtl="330.54" ytl="500.41" xbr="392.62" ybr="533.33" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="165.01" ytl="493.82" xbr="273.17" ybr="540.85" z_order="0">
+    </box>
+  </image>
+  <image id="127" name="patient_id_3690_image_11_3690_0752012008_08_WRI-R2_F005.png" width="430" height="882">
+    <box label="Fracture" occluded="0" source="manual" xtl="166.76" ytl="485.95" xbr="268.82" ybr="565.53" z_order="0">
+    </box>
+  </image>
+  <image id="128" name="patient_id_3702_image_10_3702_1092733701_05_WRI-L1_M012.png" width="468" height="936">
+    <box label="Fracture" occluded="0" source="manual" xtl="167.90" ytl="526.60" xbr="288.13" ybr="614.04" z_order="0">
+    </box>
+  </image>
+  <image id="129" name="patient_id_3702_image_9_3702_1092733655_05_WRI-L2_M012.png" width="626" height="1079">
+    <box label="Fracture" occluded="0" source="manual" xtl="279.24" ytl="612.79" xbr="413.26" ybr="700.99" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="138.35" ytl="628.83" xbr="221.97" ybr="684.96" z_order="0">
+    </box>
+  </image>
+  <image id="130" name="patient_id_3771_image_1_3771_0616798346_01_WRI-L1_M009.png" width="472" height="1114">
+    <box label="Fracture" occluded="0" source="manual" xtl="246.01" ytl="477.79" xbr="371.36" ybr="635.08" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="111.19" ytl="508.54" xbr="193.97" ybr="599.60" z_order="0">
+    </box>
+  </image>
+  <image id="131" name="patient_id_3771_image_2_3771_0616798416_01_WRI-L2_M009.png" width="422" height="924">
+    <box label="Fracture" occluded="0" source="manual" xtl="131.99" ytl="430.57" xbr="267.35" ybr="490.41" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="120.22" ytl="551.22" xbr="194.77" ybr="646.37" z_order="0">
+    </box>
+  </image>
+  <image id="132" name="patient_id_3771_image_3_3771_0631486875_02_WRI-L1_M010.png" width="609" height="986">
+    <box label="Fracture" occluded="0" source="manual" xtl="157.24" ytl="457.64" xbr="247.26" ybr="511.03" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="284.10" ytl="422.89" xbr="419.13" ybr="543.27" z_order="0">
+    </box>
+  </image>
+  <image id="133" name="patient_id_3771_image_4_3771_0631486968_02_WRI-L2_M010.png" width="563" height="1126">
+    <box label="Fracture" occluded="0" source="manual" xtl="282.13" ytl="536.74" xbr="392.11" ybr="650.30" z_order="0">
+    </box>
+  </image>
+  <image id="134" name="patient_id_3830_image_10_3830_0832468370_06_WRI-R2_M016.png" width="575" height="962">
+    <box label="Fracture" occluded="0" source="manual" xtl="183.88" ytl="516.70" xbr="327.90" ybr="724.00" z_order="0">
+    </box>
+  </image>
+  <image id="135" name="patient_id_3830_image_11_3830_0833675974_07_WRI-R1_M016.png" width="840" height="1337">
+    <box label="Fracture" occluded="0" source="manual" xtl="281.66" ytl="708.31" xbr="449.14" ybr="989.33" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="481.78" ytl="672.82" xbr="608.10" ybr="819.01" z_order="0">
+    </box>
+  </image>
+  <image id="136" name="patient_id_3830_image_12_3830_0833676034_08_WRI-R2_M016.png" width="946" height="1394">
+    <box label="Fracture" occluded="0" source="manual" xtl="405.68" ytl="565.35" xbr="592.13" ybr="796.20" z_order="0">
+    </box>
+  </image>
+  <image id="137" name="patient_id_3830_image_13_3830_0839824213_09_WRI-R1_M016.png" width="662" height="1058">
+    <box label="Fracture" occluded="0" source="manual" xtl="364.12" ytl="457.12" xbr="471.94" ybr="567.18" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="159.71" ytl="449.25" xbr="330.43" ybr="650.30" z_order="0">
+    </box>
+  </image>
+  <image id="138" name="patient_id_3830_image_14_3830_0839824263_09_WRI-R2_M016.png" width="542" height="1180">
+    <box label="Fracture" occluded="0" source="manual" xtl="225.30" ytl="511.03" xbr="388.14" ybr="686.40" z_order="0">
+    </box>
+  </image>
+  <image id="139" name="patient_id_3830_image_1_3830_0801718620_01_WRI-R1_M015.png" width="776" height="1346">
+    <box label="Fracture" occluded="0" source="manual" xtl="212.93" ytl="610.16" xbr="417.26" ybr="717.32" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="440.12" ytl="660.17" xbr="564.44" ybr="767.34" z_order="0">
+    </box>
+  </image>
+  <image id="140" name="patient_id_3830_image_2_3830_0801718696_01_WRI-R2_M015.png" width="676" height="1298">
+    <box label="Fracture" occluded="0" source="manual" xtl="280.78" ytl="646.20" xbr="453.02" ybr="768.84" z_order="0">
+    </box>
+  </image>
+  <image id="141" name="patient_id_3830_image_3_3830_0802835653_02_WRI-R1_M015.png" width="755" height="1068">
+    <box label="Fracture" occluded="0" source="manual" xtl="291.92" ytl="558.92" xbr="530.01" ybr="657.56" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="541.35" ytl="603.14" xbr="646.79" ybr="739.19" z_order="0">
+    </box>
+  </image>
+  <image id="142" name="patient_id_3830_image_4_3830_0802835687_02_WRI-R2_M015.png" width="643" height="1080">
+    <box label="Fracture" occluded="0" source="manual" xtl="307.17" ytl="553.78" xbr="482.59" ybr="709.71" z_order="0">
+    </box>
+  </image>
+  <image id="143" name="patient_id_3830_image_5_3830_0805771518_03_WRI-R1_M015.png" width="694" height="1051">
+    <box label="Fracture" occluded="0" source="manual" xtl="189.16" ytl="479.80" xbr="377.71" ybr="571.29" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="416.76" ytl="515.50" xbr="524.99" ybr="596.95" z_order="0">
+    </box>
+  </image>
+  <image id="144" name="patient_id_3830_image_6_3830_0805771553_03_WRI-R2_M015.png" width="882" height="1319">
+    <box label="Fracture" occluded="0" source="manual" xtl="346.52" ytl="390.62" xbr="517.30" ybr="512.40" z_order="0">
+    </box>
+  </image>
+  <image id="145" name="patient_id_3830_image_7_3830_0809487772_04_WRI-R1_M015.png" width="648" height="1548">
+    <box label="Fracture" occluded="0" source="manual" xtl="403.67" ytl="770.78" xbr="512.13" ybr="944.98" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="157.17" ytl="688.62" xbr="365.87" ybr="803.65" z_order="0">
+    </box>
+  </image>
+  <image id="146" name="patient_id_3830_image_8_3830_0809487832_04_WRI-R2_M015.png" width="632" height="1362">
+    <box label="Fracture" occluded="0" source="manual" xtl="219.86" ytl="491.54" xbr="406.38" ybr="706.97" z_order="0">
+    </box>
+  </image>
+  <image id="147" name="patient_id_3830_image_9_3830_0832467255_05_WRI-R1_M016.png" width="695" height="888">
+    <box label="Fracture" occluded="0" source="manual" xtl="384.72" ytl="591.07" xbr="490.30" ybr="653.29" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="142.45" ytl="513.77" xbr="346.07" ybr="690.05" z_order="0">
+    </box>
+  </image>
+  <image id="148" name="patient_id_3838_image_6_3838_0526782714_03_WRI-L2_M004.png" width="469" height="672">
+    <box label="Fracture" occluded="0" source="manual" xtl="202.74" ytl="235.41" xbr="326.15" ybr="321.02" z_order="0">
+    </box>
+  </image>
+  <image id="149" name="patient_id_3844_image_6_3844_0254026424_03_WRI-L2_M008.png" width="526" height="900">
+    <box label="Fracture" occluded="0" source="manual" xtl="144.05" ytl="409.84" xbr="291.18" ybr="462.39" z_order="0">
+    </box>
+  </image>
+  <image id="150" name="patient_id_4010_image_3_4010_0785096824_01_WRI-L1_M015.png" width="765" height="1430">
+    <box label="Fracture" occluded="0" source="manual" xtl="327.12" ytl="670.96" xbr="492.59" ybr="938.14" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="196.57" ytl="701.32" xbr="284.62" ybr="840.98" z_order="0">
+    </box>
+  </image>
+  <image id="151" name="patient_id_4010_image_4_4010_0785096854_01_WRI-L2_M015.png" width="532" height="1396">
+    <box label="Fracture" occluded="0" source="manual" xtl="140.22" ytl="494.41" xbr="251.37" ybr="692.99" z_order="0">
+    </box>
+  </image>
+  <image id="152" name="patient_id_407_image_3_0407_1246672674_03_WRI-L1_F008.png" width="448" height="752">
+    <box label="Fracture" occluded="0" source="manual" xtl="182.12" ytl="394.39" xbr="313.84" ybr="525.31" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="80.73" ytl="411.15" xbr="146.99" ybr="458.25" z_order="0">
+    </box>
+  </image>
+  <image id="153" name="patient_id_407_image_4_0407_1246672733_03_WRI-L2_F008.png" width="375" height="892">
+    <box label="Fracture" occluded="0" source="manual" xtl="114.13" ytl="538.82" xbr="180.41" ybr="601.32" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="67.73" ytl="454.55" xbr="156.74" ybr="517.99" z_order="0">
+    </box>
+  </image>
+  <image id="154" name="patient_id_4089_image_21_4089_0275081415_11_WRI-R1_F011.png" width="628" height="830">
+    <box label="Fracture" occluded="0" source="manual" xtl="228.98" ytl="588.55" xbr="405.20" ybr="671.38" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="436.92" ytl="570.93" xbr="527.67" ybr="699.57" z_order="0">
+    </box>
+  </image>
+  <image id="155" name="patient_id_4089_image_22_4089_0275081461_11_WRI-R2_F011.png" width="392" height="765">
+    <box label="Fracture" occluded="0" source="manual" xtl="175.33" ytl="503.50" xbr="247.61" ybr="610.70" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="227.30" ytl="625.32" xbr="328.00" ybr="704.90" z_order="0">
+    </box>
+  </image>
+  <image id="156" name="patient_id_4174_image_1_4174_0128411004_01_WRI-L2_M014.png" width="510" height="1019">
+    <box label="Fracture" occluded="0" source="manual" xtl="225.24" ytl="732.36" xbr="323.68" ybr="814.57" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="176.56" ytl="609.04" xbr="276.08" ybr="696.66" z_order="0">
+    </box>
+  </image>
+  <image id="157" name="patient_id_4179_image_4_4179_0370575553_03_WRI-R2_M014.png" width="457" height="826">
+    <box label="Fracture" occluded="0" source="manual" xtl="186.89" ytl="584.90" xbr="335.96" ybr="640.14" z_order="0">
+    </box>
+  </image>
+  <image id="158" name="patient_id_417_image_1_0417_0697542554_01_WRI-R1_F008.png" width="547" height="878">
+    <box label="Fracture" occluded="0" source="manual" xtl="160.40" ytl="481.96" xbr="272.24" ybr="585.41" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="349.51" ytl="506.10" xbr="413.82" ybr="554.56" z_order="0">
+    </box>
+  </image>
+  <image id="159" name="patient_id_417_image_2_0417_0697542589_01_WRI-R2_F008.png" width="513" height="888">
+    <box label="Fracture" occluded="0" source="manual" xtl="217.40" ytl="431.76" xbr="316.38" ybr="600.50" z_order="0">
+    </box>
+  </image>
+  <image id="160" name="patient_id_429_image_12_0429_0239777942_07_WRI-L1_M015.png" width="628" height="1306">
+    <box label="Fracture" occluded="0" source="manual" xtl="214.82" ytl="615.63" xbr="429.72" ybr="751.50" z_order="0">
+    </box>
+  </image>
+  <image id="161" name="patient_id_42_image_6_0042_0827512754_04_WRI-R1_M015.png" width="643" height="1040">
+    <box label="Fracture" occluded="0" source="manual" xtl="177.43" ytl="565.28" xbr="315.43" ybr="632.62" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="366.22" ytl="535.47" xbr="452.34" ybr="610.54" z_order="0">
+    </box>
+  </image>
+  <image id="162" name="patient_id_4314_image_2_4314_0440744466_01_WRI-L2_F011.png" width="356" height="654">
+    <box label="Fracture" occluded="0" source="manual" xtl="74.18" ytl="300.65" xbr="207.47" ybr="358.96" z_order="0">
+    </box>
+  </image>
+  <image id="163" name="patient_id_4420_image_11_4420_0631647639_05_WRI-L1_M017.png" width="847" height="1382">
+    <box label="Fracture" occluded="0" source="manual" xtl="241.55" ytl="652.34" xbr="326.65" ybr="724.23" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="371.39" ytl="611.85" xbr="540.11" ybr="780.56" z_order="0">
+    </box>
+  </image>
+  <image id="164" name="patient_id_4420_image_12_4420_0631647727_05_WRI-L2_M017.png" width="795" height="1402">
+    <box label="Fracture" occluded="0" source="manual" xtl="247.85" ytl="577.51" xbr="408.74" ybr="727.83" z_order="0">
+    </box>
+  </image>
+  <image id="165" name="patient_id_4420_image_15_4420_0638911480_07_WRI-L1_M017.png" width="542" height="962">
+    <box label="Fracture" occluded="0" source="manual" xtl="266.40" ytl="449.30" xbr="449.20" ybr="546.32" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="132.62" ytl="469.73" xbr="207.17" ybr="579.00" z_order="0">
+    </box>
+  </image>
+  <image id="166" name="patient_id_4420_image_16_4420_0638911549_07_WRI-L2_M017.png" width="486" height="974">
+    <box label="Fracture" occluded="0" source="manual" xtl="153.57" ytl="537.69" xbr="308.67" ybr="669.00" z_order="0">
+    </box>
+  </image>
+  <image id="167" name="patient_id_4485_image_7_4485_1122781134_04_WRI-L1_M012.png" width="748" height="998">
+    <box label="Fracture" occluded="0" source="manual" xtl="208.25" ytl="670.59" xbr="331.14" ybr="733.10" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="368.22" ytl="639.87" xbr="554.69" ybr="722.50" z_order="0">
+    </box>
+  </image>
+  <image id="168" name="patient_id_4596_image_3_4596_0713331678_02_WRI-R1_M016.png" width="666" height="840">
+    <box label="Fracture" occluded="0" source="manual" xtl="403.91" ytl="699.07" xbr="488.62" ybr="795.37" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="154.23" ytl="657.16" xbr="368.24" ybr="716.01" z_order="0">
+    </box>
+  </image>
+  <image id="169" name="patient_id_4596_image_4_4596_0713331692_02_WRI-R2_M016.png" width="537" height="802">
+    <box label="Fracture" occluded="0" source="manual" xtl="221.29" ytl="627.48" xbr="400.08" ybr="710.07" z_order="0">
+    </box>
+  </image>
+  <image id="170" name="patient_id_480_image_1_0480_0953011791_01_WRI-R1_M001.png" width="418" height="492">
+    <box label="Fracture" occluded="0" source="manual" xtl="197.79" ytl="330.08" xbr="269.34" ybr="418.87" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="83.41" ytl="345.75" xbr="174.81" ybr="388.06" z_order="0">
+    </box>
+  </image>
+  <image id="171" name="patient_id_480_image_2_0480_0953011842_01_WRI-R2_M001.png" width="460" height="688">
+    <box label="Fracture" occluded="0" source="manual" xtl="190.22" ytl="349.88" xbr="269.83" ybr="410.50" z_order="0">
+    </box>
+  </image>
+  <image id="172" name="patient_id_4858_image_3_4858_0819532370_02_WRI-R1_M009.png" width="470" height="896">
+    <box label="Fracture" occluded="0" source="manual" xtl="318.24" ytl="444.17" xbr="408.60" ybr="593.50" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="121.34" ytl="451.78" xbr="285.90" ybr="537.38" z_order="0">
+    </box>
+  </image>
+  <image id="173" name="patient_id_4858_image_4_4858_0819532400_02_WRI-R2_M009.png" width="328" height="1006">
+    <box label="Fracture" occluded="0" source="manual" xtl="120.74" ytl="509.37" xbr="247.83" ybr="573.44" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="199.77" ytl="598.00" xbr="271.32" ybr="670.62" z_order="0">
+    </box>
+  </image>
+  <image id="174" name="patient_id_4883_image_2_4883_0234808831_01_WRI-R2_F012.png" width="514" height="1002">
+    <box label="Fracture" occluded="0" source="manual" xtl="243.65" ytl="600.95" xbr="319.18" ybr="702.00" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="250.04" ytl="450.97" xbr="353.22" ybr="549.89" z_order="0">
+    </box>
+  </image>
+  <image id="175" name="patient_id_4963_image_10_4963_0494789232_06_WRI-R2_F010.png" width="460" height="1110">
+    <box label="Fracture" occluded="0" source="manual" xtl="215.25" ytl="570.29" xbr="334.26" ybr="780.03" z_order="0">
+    </box>
+  </image>
+  <image id="176" name="patient_id_4963_image_11_4963_0499105262_07_WRI-L1_F010.png" width="620" height="1032">
+    <box label="Fracture" occluded="0" source="manual" xtl="293.02" ytl="509.39" xbr="447.49" ybr="612.37" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="153.88" ytl="530.20" xbr="249.20" ybr="600.32" z_order="0">
+    </box>
+  </image>
+  <image id="177" name="patient_id_4963_image_12_4963_0499105294_07_WRI-L2_F010.png" width="516" height="954">
+    <box label="Fracture" occluded="0" source="manual" xtl="165.30" ytl="494.24" xbr="281.77" ybr="636.02" z_order="0">
+    </box>
+  </image>
+  <image id="178" name="patient_id_4963_image_9_4963_0494789173_06_WRI-R1_F010.png" width="518" height="1006">
+    <box label="Fracture" occluded="0" source="manual" xtl="326.85" ytl="555.29" xbr="406.95" ybr="729.36" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="144.24" ytl="574.51" xbr="294.82" ybr="656.74" z_order="0">
+    </box>
+  </image>
+  <image id="179" name="patient_id_5147_image_1_5147_0674233529_01_WRI-L1_M010.png" width="755" height="1108">
+    <box label="Fracture" occluded="0" source="manual" xtl="329.85" ytl="575.21" xbr="525.10" ybr="714.00" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="194.58" ytl="602.26" xbr="289.86" ybr="674.01" z_order="0">
+    </box>
+  </image>
+  <image id="180" name="patient_id_5147_image_2_5147_0674233584_01_WRI-L2_M010.png" width="471" height="1112">
+    <box label="Fracture" occluded="0" source="manual" xtl="155.83" ytl="655.16" xbr="262.07" ybr="761.41" z_order="0">
+    </box>
+  </image>
+  <image id="181" name="patient_id_5373_image_7_5373_0663772682_04_WRI-R1_F011.png" width="602" height="941">
+    <box label="Fracture" occluded="0" source="manual" xtl="164.22" ytl="533.83" xbr="344.03" ybr="601.75" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="379.39" ytl="522.44" xbr="477.29" ybr="617.34" z_order="0">
+    </box>
+  </image>
+  <image id="182" name="patient_id_5373_image_8_5373_0663772770_04_WRI-R2_F011.png" width="466" height="1097">
+    <box label="Fracture" occluded="0" source="manual" xtl="173.07" ytl="514.75" xbr="331.45" ybr="727.86" z_order="0">
+    </box>
+  </image>
+  <image id="183" name="patient_id_547_image_5_0547_0875714657_03_WRI-R1_F015.png" width="538" height="834">
+    <box label="Fracture" occluded="0" source="manual" xtl="383.66" ytl="577.28" xbr="463.34" ybr="652.54" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="410.22" ytl="379.85" xbr="458.02" ybr="433.85" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="156.12" ytl="502.29" xbr="325.22" ybr="566.04" z_order="0">
+    </box>
+  </image>
+  <image id="184" name="patient_id_547_image_6_0547_0875714688_03_WRI-R2_F015.png" width="445" height="668">
+    <box label="Fracture" occluded="0" source="manual" xtl="235.61" ytl="414.17" xbr="336.30" ybr="468.06" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="254.04" ytl="502.81" xbr="363.25" ybr="612.72" z_order="0">
+    </box>
+  </image>
+  <image id="185" name="patient_id_5546_image_13_5546_0620676223_08_WRI-L1_F011.png" width="582" height="964">
+    <box label="Fracture" occluded="0" source="manual" xtl="90.94" ytl="526.99" xbr="166.67" ybr="600.67" z_order="0">
+    </box>
+  </image>
+  <image id="186" name="patient_id_5546_image_14_5546_0620676251_08_WRI-L2_F011.png" width="434" height="960">
+    <box label="Fracture" occluded="0" source="manual" xtl="145.11" ytl="535.02" xbr="240.90" ybr="651.20" z_order="0">
+    </box>
+  </image>
+  <image id="187" name="patient_id_5561_image_5_5561_0781526918_03_WRI-L1_M014.png" width="572" height="898">
+    <box label="Fracture" occluded="0" source="manual" xtl="107.22" ytl="488.06" xbr="202.55" ybr="559.56" z_order="0">
+    </box>
+  </image>
+  <image id="188" name="patient_id_5561_image_6_5561_0781526951_03_WRI-L2_M014.png" width="448" height="670">
+    <box label="Fracture" occluded="0" source="manual" xtl="121.22" ytl="310.84" xbr="280.54" ybr="381.96" z_order="0">
+    </box>
+  </image>
+  <image id="189" name="patient_id_5642_image_1_5642_0293744613_01_WRI-R1_M010.png" width="506" height="792">
+    <box label="Fracture" occluded="0" source="manual" xtl="109.65" ytl="453.19" xbr="255.95" ybr="521.29" z_order="0">
+    </box>
+  </image>
+  <image id="190" name="patient_id_5642_image_2_5642_0293744658_01_WRI-R2_M010.png" width="488" height="1014">
+    <box label="Fracture" occluded="0" source="manual" xtl="203.61" ytl="505.87" xbr="318.79" ybr="660.88" z_order="0">
+    </box>
+  </image>
+  <image id="191" name="patient_id_5716_image_10_5716_0714438628_05_WRI-L2_M014.png" width="518" height="892">
+    <box label="Fracture" occluded="0" source="manual" xtl="195.09" ytl="424.25" xbr="309.67" ybr="694.12" z_order="0">
+    </box>
+  </image>
+  <image id="192" name="patient_id_5716_image_11_5716_0722298081_06_WRI-L1_M014.png" width="661" height="1094">
+    <box label="Fracture" occluded="0" source="manual" xtl="295.04" ytl="641.12" xbr="444.85" ybr="851.33" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="133.61" ytl="615.57" xbr="252.07" ybr="832.75" z_order="0">
+    </box>
+  </image>
+  <image id="193" name="patient_id_5716_image_12_5716_0722298164_06_WRI-L2_M014.png" width="577" height="1206">
+    <box label="Fracture" occluded="0" source="manual" xtl="153.44" ytl="585.14" xbr="307.07" ybr="875.76" z_order="0">
+    </box>
+  </image>
+  <image id="194" name="patient_id_5716_image_1_5716_0700522923_01_WRI-L2_M013.png" width="451" height="944">
+    <box label="Fracture" occluded="0" source="manual" xtl="154.80" ytl="700.46" xbr="237.97" ybr="763.59" z_order="0">
+    </box>
+  </image>
+  <image id="195" name="patient_id_5716_image_2_5716_0700522966_01_WRI-L2_M013.png" width="466" height="996">
+    <box label="Fracture" occluded="0" source="manual" xtl="159.48" ytl="707.38" xbr="240.89" ybr="828.97" z_order="0">
+    </box>
+  </image>
+  <image id="196" name="patient_id_5716_image_3_5716_0701556740_02_WRI-R1_M013.png" width="654" height="1186">
+    <box label="Fracture" occluded="0" source="manual" xtl="189.18" ytl="582.88" xbr="336.49" ybr="717.60" z_order="0">
+    </box>
+  </image>
+  <image id="197" name="patient_id_5716_image_4_5716_0701556773_02_WRI-R2_M013.png" width="551" height="1212">
+    <box label="Fracture" occluded="0" source="manual" xtl="263.32" ytl="591.80" xbr="366.25" ybr="787.36" z_order="0">
+    </box>
+  </image>
+  <image id="198" name="patient_id_5716_image_5_5716_0709677797_03_WRI-L1_M013.png" width="659" height="938">
+    <box label="Fracture" occluded="0" source="manual" xtl="290.17" ytl="471.99" xbr="442.52" ybr="576.55" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="139.81" ytl="492.90" xbr="243.37" ybr="609.41" z_order="0">
+    </box>
+  </image>
+  <image id="199" name="patient_id_5716_image_6_5716_0709677847_03_WRI-L2_M013.png" width="603" height="1052">
+    <box label="Fracture" occluded="0" source="manual" xtl="226.10" ytl="700.17" xbr="304.28" ybr="802.92" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="206.00" ytl="452.25" xbr="307.63" ybr="603.01" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="283.06" ytl="561.69" xbr="395.85" ybr="728.09" z_order="0">
+    </box>
+  </image>
+  <image id="200" name="patient_id_5716_image_7_5716_0712018240_04_WRI-L1_M014.png" width="674" height="1302">
+    <box label="Fracture" occluded="0" source="manual" xtl="93.02" ytl="700.76" xbr="199.44" ybr="877.67" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="234.00" ytl="711.81" xbr="426.12" ybr="841.74" z_order="0">
+    </box>
+  </image>
+  <image id="201" name="patient_id_5716_image_8_5716_0712018278_04_WRI-L2_M014.png" width="669" height="1478">
+    <box label="Fracture" occluded="0" source="manual" xtl="205.10" ytl="748.45" xbr="354.16" ybr="1054.40" z_order="0">
+    </box>
+  </image>
+  <image id="202" name="patient_id_5716_image_9_5716_0714438577_05_WRI-L1_M014.png" width="552" height="1012">
+    <box label="Fracture" occluded="0" source="manual" xtl="61.69" ytl="528.59" xbr="176.64" ybr="684.36" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="215.32" ytl="474.87" xbr="410.84" ybr="588.75" z_order="0">
+    </box>
+  </image>
+  <image id="203" name="patient_id_5777_image_3_5777_0737373133_02_WRI-R1_F009.png" width="682" height="1334">
+    <box label="Fracture" occluded="0" source="manual" xtl="238.38" ytl="665.63" xbr="347.42" ybr="764.76" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="396.99" ytl="637.31" xbr="490.45" ybr="817.16" z_order="0">
+    </box>
+  </image>
+  <image id="204" name="patient_id_5824_image_3_5824_0830512572_01_WRI-L1_M009.png" width="416" height="774">
+    <box label="Fracture" occluded="0" source="manual" xtl="231.45" ytl="317.15" xbr="371.96" ybr="428.07" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="80.26" ytl="351.66" xbr="158.32" ybr="413.28" z_order="0">
+    </box>
+  </image>
+  <image id="205" name="patient_id_5824_image_4_5824_0830512637_01_WRI-L2_M009.png" width="368" height="926">
+    <box label="Fracture" occluded="0" source="manual" xtl="124.57" ytl="523.97" xbr="220.91" ybr="598.68" z_order="0">
+    </box>
+  </image>
+  <image id="206" name="patient_id_5864_image_1_5864_0773614767_01_WRI-R1_F008.png" width="461" height="806">
+    <box label="Fracture" occluded="0" source="manual" xtl="117.76" ytl="378.72" xbr="228.99" ybr="448.03" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="289.99" ytl="359.39" xbr="356.73" ybr="469.76" z_order="0">
+    </box>
+  </image>
+  <image id="207" name="patient_id_5864_image_7_5864_0815942414_04_WRI-L1_F010.png" width="511" height="678">
+    <box label="Fracture" occluded="0" source="manual" xtl="78.81" ytl="387.94" xbr="138.55" ybr="431.12" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="183.89" ytl="364.91" xbr="312.72" ybr="466.39" z_order="0">
+    </box>
+  </image>
+  <image id="208" name="patient_id_586_image_1_0586_0853794638_01_WRI-L1_F005.png" width="550" height="734">
+    <box label="Fracture" occluded="0" source="manual" xtl="192.00" ytl="319.48" xbr="244.21" ybr="381.81" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="297.19" ytl="296.10" xbr="401.60" ybr="324.93" z_order="0">
+    </box>
+  </image>
+  <image id="209" name="patient_id_586_image_2_0586_0853794703_01_WRI-L2_F005.png" width="536" height="982">
+    <box label="Fracture" occluded="0" source="manual" xtl="177.85" ytl="372.17" xbr="266.46" ybr="494.13" z_order="0">
+    </box>
+  </image>
+  <image id="210" name="patient_id_5914_image_1_5914_0810361145_01_WRI-L1_F010.png" width="553" height="1102">
+    <box label="Fracture" occluded="0" source="manual" xtl="123.80" ytl="630.58" xbr="188.14" ybr="777.98" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="234.93" ytl="613.03" xbr="374.15" ybr="877.42" z_order="0">
+    </box>
+  </image>
+  <image id="211" name="patient_id_5914_image_2_5914_0810361188_01_WRI-L2_F010.png" width="425" height="756">
+    <box label="Fracture" occluded="0" source="manual" xtl="216.91" ytl="640.41" xbr="280.31" ybr="695.79" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="143.07" ytl="473.48" xbr="244.19" ybr="540.09" z_order="0">
+    </box>
+  </image>
+  <image id="212" name="patient_id_5920_image_1_5920_1211575388_01_WRI-R1_M013.png" width="601" height="1066">
+    <box label="Fracture" occluded="0" source="manual" xtl="165.26" ytl="539.84" xbr="350.85" ybr="620.18" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="379.14" ytl="511.55" xbr="491.18" ybr="642.81" z_order="0">
+    </box>
+  </image>
+  <image id="213" name="patient_id_5969_image_2_5969_0684585258_01_WRI-R2_M010.png" width="445" height="1302">
+    <box label="Fracture" occluded="0" source="manual" xtl="216.31" ytl="624.74" xbr="325.50" ybr="742.22" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="221.84" ytl="829.30" xbr="336.56" ybr="946.78" z_order="0">
+    </box>
+  </image>
+  <image id="214" name="patient_id_6017_image_5_6017_0622102780_03_WRI-L1_M010.png" width="559" height="936">
+    <box label="Fracture" occluded="0" source="manual" xtl="248.19" ytl="452.08" xbr="397.23" ybr="533.56" z_order="0">
+    </box>
+  </image>
+  <image id="215" name="patient_id_601_image_1_0601_0667709788_01_WRI-R1_M011.png" width="584" height="844">
+    <box label="Fracture" occluded="0" source="manual" xtl="182.25" ytl="443.51" xbr="346.21" ybr="528.63" z_order="0">
+    </box>
+  </image>
+  <image id="216" name="patient_id_601_image_2_0601_0667709821_01_WRI-R2_M011.png" width="436" height="840">
+    <box label="Fracture" occluded="0" source="manual" xtl="203.27" ytl="443.15" xbr="332.57" ybr="543.91" z_order="0">
+    </box>
+  </image>
+  <image id="217" name="patient_id_6060_image_1_6060_0585926251_01_WRI-R1_M015.png" width="612" height="1226">
+    <box label="Fracture" occluded="0" source="manual" xtl="155.65" ytl="692.38" xbr="370.40" ybr="786.09" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="426.36" ytl="810.82" xbr="527.88" ybr="898.02" z_order="0">
+    </box>
+  </image>
+  <image id="218" name="patient_id_6062_image_5_6062_1102929567_03_WRI-L1_F011.png" width="492" height="692">
+    <box label="Fracture" occluded="0" source="manual" xtl="88.41" ytl="354.12" xbr="175.83" ybr="415.09" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="216.96" ytl="343.10" xbr="362.42" ybr="436.39" z_order="0">
+    </box>
+  </image>
+  <image id="219" name="patient_id_6062_image_6_6062_1102929599_03_WRI-L2_F011.png" width="385" height="722">
+    <box label="Fracture" occluded="0" source="manual" xtl="80.99" ytl="463.68" xbr="195.19" ybr="535.72" z_order="0">
+    </box>
+  </image>
+  <image id="220" name="patient_id_640_image_12_0640_0442148822_06_WRI-L2_F011.png" width="354" height="1205">
+    <box label="Fracture" occluded="0" source="manual" xtl="98.33" ytl="642.12" xbr="200.67" ybr="808.41" z_order="0">
+    </box>
+  </image>
+  <image id="221" name="patient_id_650_image_3_0650_1035368083_02_WRI-L2_M015.png" width="784" height="1272">
+    <box label="Fracture" occluded="0" source="manual" xtl="277.89" ytl="698.11" xbr="449.38" ybr="785.88" z_order="0">
+    </box>
+  </image>
+  <image id="222" name="patient_id_650_image_4_0650_1035368122_02_WRI-L1_M015.png" width="924" height="1244">
+    <box label="Fracture" occluded="0" source="manual" xtl="426.97" ytl="656.36" xbr="619.78" ybr="821.43" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="286.99" ytl="680.13" xbr="389.99" ybr="758.04" z_order="0">
+    </box>
+  </image>
+  <image id="223" name="patient_id_808_image_5_0808_0322686747_03_WRI-L1_F010.png" width="448" height="894">
+    <box label="Fracture" occluded="0" source="manual" xtl="75.50" ytl="517.19" xbr="157.12" ybr="610.19" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="186.54" ytl="464.04" xbr="332.69" ybr="588.37" z_order="0">
+    </box>
+  </image>
+  <image id="224" name="patient_id_808_image_6_0808_0322686824_03_WRI-L2_F010.png" width="382" height="977">
+    <box label="Fracture" occluded="0" source="manual" xtl="141.78" ytl="454.28" xbr="214.38" ybr="570.44" z_order="0">
+    </box>
+  </image>
+  <image id="225" name="patient_id_819_image_1_0819_0567750811_01_WRI-L1_F005.png" width="547" height="1004">
+    <box label="Fracture" occluded="0" source="manual" xtl="236.76" ytl="588.37" xbr="367.85" ybr="650.19" z_order="0">
+    </box>
+  </image>
+  <image id="226" name="patient_id_819_image_2_0819_0567750840_01_WRI-L2_F005.png" width="503" height="1012">
+    <box label="Fracture" occluded="0" source="manual" xtl="202.64" ytl="542.55" xbr="295.03" ybr="675.77" z_order="0">
+    </box>
+  </image>
+  <image id="227" name="patient_id_936_image_7_0936_0767215020_04_WRI-L1_M012.png" width="526" height="1226">
+    <box label="Fracture" occluded="0" source="manual" xtl="253.26" ytl="549.22" xbr="391.22" ybr="727.53" z_order="0">
+    </box>
+  </image>
+  <image id="228" name="patient_id_948_image_1_0948_0754425897_01_WRI-L1_M013.png" width="642" height="1052">
+    <box label="Fracture" occluded="0" source="manual" xtl="297.02" ytl="622.00" xbr="489.10" ybr="792.87" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="146.25" ytl="647.69" xbr="247.88" ybr="722.51" z_order="0">
+    </box>
+  </image>
+  <image id="229" name="patient_id_948_image_2_0948_0754425933_01_WRI-L1_M013.png" width="661" height="1144">
+    <box label="Fracture" occluded="0" source="manual" xtl="116.15" ytl="597.55" xbr="214.52" ybr="725.06" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="270.38" ytl="569.62" xbr="463.48" ybr="807.65" z_order="0">
+    </box>
+  </image>
+  <image id="230" name="patient_id_948_image_3_0948_0754425984_01_WRI-L1_M013.png" width="752" height="1070">
+    <box label="Fracture" occluded="0" source="manual" xtl="372.00" ytl="591.79" xbr="563.96" ybr="791.71" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="202.75" ytl="609.97" xbr="304.98" ybr="726.96" z_order="0">
+    </box>
+  </image>
+  <image id="231" name="patient_id_999_image_1_0999_1158903383_01_WRI-L1_F007.png" width="484" height="884">
+    <box label="Fracture" occluded="0" source="manual" xtl="233.04" ytl="495.52" xbr="348.47" ybr="613.76" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="122.31" ytl="529.30" xbr="189.87" ybr="594.99" z_order="0">
+    </box>
+  </image>
+  <image id="232" name="patient_id_999_image_2_0999_1158903440_01_WRI-L2_F007.png" width="424" height="841">
+    <box label="Fracture" occluded="0" source="manual" xtl="127.64" ytl="499.03" xbr="228.52" ybr="588.31" z_order="0">
+    </box>
+  </image>
+  <image id="233" name="patient_id_999_image_3_0999_1187063894_02_WRI-L1_F008.png" width="560" height="941">
+    <box label="Fracture" occluded="0" source="manual" xtl="110.68" ytl="508.45" xbr="173.61" ybr="562.40" z_order="0">
+    </box>
+    <box label="Fracture" occluded="0" source="manual" xtl="218.56" ytl="487.48" xbr="317.46" ybr="595.36" z_order="0">
+    </box>
+  </image>
+  <image id="234" name="patient_id_999_image_4_0999_1187063974_02_WRI-L2_F008.png" width="508" height="861">
+    <box label="Fracture" occluded="0" source="manual" xtl="134.75" ytl="425.04" xbr="213.35" ybr="532.89" z_order="0">
+    </box>
+  </image>
+</annotations>

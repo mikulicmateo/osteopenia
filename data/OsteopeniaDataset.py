@@ -3,24 +3,30 @@ import numpy as np
 import torchvision.transforms
 from torch.utils.data import Dataset
 import pandas as pd
+import imutils
 import cv2
 import os
 import json
-import imutils
 import math
 
 
 class OsteopeniaDataset(Dataset):
 
     def __init__(self, data_file_path, mean, std, horizontal_flip_probability, rotation_probability, rotation_angle,
-                 brightness, contrast, saturation, hue, desired_image_size: int, annotations_path, remove_fractures=False, center_image_by_axis=True):
+                 fracture_mask_probability, metal_mask_probability, periosteal_mask_probability,
+                 text_mask_probability, brightness, contrast, saturation, hue, desired_image_size: int, annotations_path = None, center_image_by_axis=True):
+        
         self.data_file = pd.read_csv(data_file_path)
         self.desired_image_size = desired_image_size
         self.rotation_probability = rotation_probability
         self.rotation_angle = rotation_angle
         self.annotations_path = annotations_path
-        self.remove_fractures = remove_fractures
+        self.fracture_mask_probability = fracture_mask_probability
+        self.metal_mask_probability = metal_mask_probability
+        self.periosteal_mask_probability = periosteal_mask_probability
+        self.text_mask_probability = text_mask_probability
         self.center_image_by_axis = center_image_by_axis
+
 
         if brightness == 0:
             self.transform = torchvision.transforms.Compose([
@@ -54,11 +60,21 @@ class OsteopeniaDataset(Dataset):
     def _get_image_by_index(self, index):
         path = self.data_file.loc[index, 'filestem']
         img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+        
         name = self._get_name_by_index(index)
-        if self.remove_fractures:
-            img = self._remove_fracture(self._get_name_by_index(index), img)
+        json_dict = self.load_json_into_dict(index)
+        if np.random.uniform() <= self.text_mask_probability and 'text' in json_dict:
+            img = self._mask_rect(img, json_dict['text'])
+        if np.random.uniform() <= self.fracture_mask_probability:
+            img = self._mask_rect(img, json_dict["fracture"])
+        if np.random.uniform() <= self.metal_mask_probability:
+            img = self._mask_rect(img, json_dict["metal"])
+        if np.random.uniform() <= self.periosteal_mask_probability:
+            img = self._mask_poly(img, json_dict["periostealreaction"])
+
         if not self.center_image_by_axis:
             name = None
+
         return self._pad_image(img, name)
 
     def _get_label_by_index(self, index):
@@ -75,17 +91,23 @@ class OsteopeniaDataset(Dataset):
     def _is_NaN(self, num):
         return num != num
 
-    def _remove_fracture(self, name, img):
-        with open(os.path.join(self.annotations_path, f"{name}.json")) as file:
-            data = json.load(file)
-
-        for object in data["objects"]:
-            title = object.get("classTitle")
-            if title == "fracture":
-                points = object["points"]["exterior"]
-                img[int(points[0][1]): int(points[1][1]), int(points[0][0]): int(points[1][0])] = 0
-
+    def _mask_rect(self, img, point_set):
+        for points in point_set:
+            img[int(points[0][1]): int(points[1][1]), int(points[0][0]): int(points[1][0])] = 0
         return img
+
+    def _mask_poly(self, img, point_set):
+        for points in point_set:
+            points = np.array(points, dtype=np.int32)
+            img = cv2.fillPoly(img, pts=[points], color=(0, 0, 0))
+        return img
+    
+    def load_json_into_dict(self, index):
+        path = self.data_file.loc[index, 'filestem']
+        json_path = path.split(".")[0] + ".json"
+        with open(json_path) as file:
+            json_dict = json.load(file)
+        return json_dict
 
     def rotation(self, img, angle):
         angle = int(np.random.uniform(-angle, angle))
@@ -95,7 +117,7 @@ class OsteopeniaDataset(Dataset):
         size_new = MM @ size_reverse
         M[:, -1] += (size_new - size_reverse) / 2.
         return cv2.warpAffine(img, M, tuple(size_new.astype(int)))
-
+    
     def get_axis_points(self, name):
         with open(os.path.join(self.annotations_path, f"{name}.json")) as file:
             data = json.load(file)
@@ -110,6 +132,7 @@ class OsteopeniaDataset(Dataset):
         P2 = points[0]
 
         return np.array(P1), np.array(P2)
+    
     def center_image_axis(self, name, image):  # upper point is P1, lower P2
         P1, P2 = self.get_axis_points(name)
 
@@ -126,7 +149,7 @@ class OsteopeniaDataset(Dataset):
 
         return imutils.rotate_bound(image, angle_p_y)
 
-    def _pad_image(self, image, name=None):
+    def _pad_image(self, image, name):
         """
         Script for resizing the image to the desired dimensions
         First the image is resized then it is zero-padded to the desired
@@ -192,7 +215,7 @@ if __name__ == '__main__':
         0,
         0,
         config_dict['desired_image_size'],
-        config_dict['additional_annotations_path']
+        os.path.join(config_dict['additional_annotations_path'], "test")
     )
 
     im, lbl = ds[0]
@@ -205,22 +228,8 @@ if __name__ == '__main__':
     #print(type(im))
     #print(im.shape)
     #cv2.imshow("bo", im.numpy())
-    indices = np.random.randint(0, len(ds), size=2)
-
-    df = pd.read_csv("/home/mateo/fakultet/research/osteopenia/data/test_dataset.csv")
-    paths = df['filestem'].to_numpy()
-
-    for i in indices:
-        im, lbl = ds[i]
-        f, axarr = plt.subplots(1, 2, figsize=(15, 15))
-        image = plt.imread(paths[i])
-        axarr[0].imshow(im.permute(1, 2, 0), cmap='gray')
-        axarr[1].imshow(image, cmap='gray')
-        axarr[0].axis('off')
-        axarr[1].axis('off')
-        for ax in f.axes:
-            ax.axison = False
-        plt.savefig(f"side_by_side_{i}.png")
+    plt.imshow(im.permute(1, 2, 0))
+    plt.show()
     #plt.imshow(im[0])
     #plt.show()
     print(lbl)

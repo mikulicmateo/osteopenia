@@ -24,16 +24,7 @@ class Trainer:
             self.device = self.config_dict["device"]
         else:
             self.device = "cpu"
-
-        # self.full_dataset = OsteopeniaDataset(
-        #    self.config_dict['osteopenia_dataset_csv_path'],
-        #    self.config_dict['mean'],
-        #    self.config_dict['std'],
-        #    self.config_dict['desired_image_size']
-        # )
-
-        # self.training_data, self.validation_data, self.test_data = \
-        #     torch.utils.data.random_split(self.full_dataset, self.config_dict['n_split_train_val_test'])
+            
         self.data_folder_path = os.path.join(os.getcwd(), 'data')
 
         self.training_data = OsteopeniaDataset(
@@ -43,6 +34,10 @@ class Trainer:
             self.config_dict['horizontal_flip_probability'],
             self.config_dict['rotation_probability'],
             self.config_dict['rotation_angle'],
+            self.config_dict['fracture_mask_probability'],
+            self.config_dict['metal_mask_probability'],
+            self.config_dict['periosteal_mask_probability'],
+            self.config_dict['text_mask_probability'],
             self.config_dict['brightness'],
             self.config_dict['contrast'],
             self.config_dict['saturation'],
@@ -55,6 +50,10 @@ class Trainer:
             os.path.join(self.data_folder_path, 'validation_dataset.csv'),
             self.config_dict['mean'],
             self.config_dict['std'],
+            0,
+            0,
+            0,
+            0,
             0,
             0,
             0,
@@ -77,9 +76,12 @@ class Trainer:
             0,
             0,
             0,
+            0,
+            0,
+            0,
+            0,
             self.config_dict['desired_image_size'],
             self.config_dict['additional_annotations_path'],
-            #remove_fractures=True,
             center_image_by_axis=False
         )
 
@@ -144,7 +146,6 @@ class Trainer:
                 loss=float(loss.item()),
                 accuracy=float(accuracy)
             )
-            # TODO weighted scores
 
         return correct / len(self.training_data), np.mean(losses)
 
@@ -211,17 +212,17 @@ class Trainer:
             save_path_last = f"model/trained/"
             save_path_best = f"model/trained/"
         else:
-            save_path_last = f"model/trained/stage-{self.stage}/"
-            save_path_best = f"model/trained/stage-{self.stage}/"
+            save_path_last = f"model/trained/{self.config_dict['model_id']}_fm{self.config_dict['fracture_mask_probability']}_mm{self.config_dict['metal_mask_probability']}_pm{self.config_dict['periosteal_mask_probability']}/stage-{self.stage}/"
+            save_path_best = f"model/trained/{self.config_dict['model_id']}_fm{self.config_dict['fracture_mask_probability']}_mm{self.config_dict['metal_mask_probability']}_pm{self.config_dict['periosteal_mask_probability']}/stage-{self.stage}/"
 
         if not os.path.exists(save_path_last):
             os.makedirs(save_path_last)
         if not os.path.exists(save_path_best):
             os.makedirs(save_path_best)
 
-        torch.save(model_state, save_path_last + f"last-{self.model_name}.pt")
+        torch.save(model_state, os.path.join(save_path_last, f"last-{self.model_name}.pt"))
         if best:
-            torch.save(model_state, save_path_best + f"best-{self.model_name}.pt")
+            torch.save(model_state, os.path.join(save_path_best, f"best-{self.model_name}.pt"))
 
     def export_metrics_to_xlsx(self, best_epoch, best_score, training_dict, validation_dict):
 
@@ -267,7 +268,7 @@ class Trainer:
 
             validation_accuracy, validation_loss = self.val_epoch()
             print(f"Validation Loss: {validation_loss}, Val accuracy: {validation_accuracy}")
-
+            
             self.save_model(train_loss, train_accuracy, validation_loss, validation_accuracy, epoch, False)
             if validation_accuracy > best_val_acc:
                 self.save_model(train_loss, train_accuracy, validation_loss, validation_accuracy, epoch, True)
