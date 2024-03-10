@@ -1,0 +1,2 @@
+OsteopeniaMinimumWorkingExample/models/best-vgg19.pt filter=lfs diff=lfs merge=lfs -text
+OsteopeniaMinimumWorkingExample/models/best-densenet169.pt filter=lfs diff=lfs merge=lfs -text
