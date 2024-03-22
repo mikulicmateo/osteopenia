@@ -27,6 +27,7 @@ These results suggest that while occluding confounding variables may degrade mod
 
 ### Authors
 
+Mateo Mikulić, Dominik Vičević, Eszter Nagy, Mateja Napravnik, Ivan Štajduhar, Sebastian Tschauner, and Franko Hržić
 
 <br/>
 <br/>
